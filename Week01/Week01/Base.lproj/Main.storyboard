@@ -26,8 +26,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cj-xc-hUN">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="37"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                         <state key="normal" title="Set Color" backgroundImage="Button-Normal">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="setColor" destination="BYZ-38-t0r" eventType="touchUpInside" id="bmT-i0-2sI"/>
@@ -43,7 +44,10 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7E-J5-L9R">
                                         <rect key="frame" x="234" y="0.0" width="100" height="37"/>
-                                        <state key="normal" title="Reset" image="StartOverIcon" backgroundImage="Button-Normal"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                        <state key="normal" title="Reset" image="StartOverIcon" backgroundImage="Button-Normal">
+                                            <color key="titleColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="reset" destination="BYZ-38-t0r" eventType="touchUpInside" id="0cq-oD-jau"/>
                                         </connections>
