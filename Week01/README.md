@@ -1,4 +1,5 @@
-Name : Maitri Mehta
+Name : 
+![Maitri Mehta](https://github.com/MaitriMehta/RWBootcamp/blob/master/Week01/MaitriMehtaBioPic.jpg)
 
 Discord : TS Maitri
 
