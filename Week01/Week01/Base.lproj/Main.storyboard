@@ -120,7 +120,7 @@
                                     <action selector="setColor" destination="BYZ-38-t0r" eventType="touchUpInside" id="pje-ua-pzL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1C-7m-yk3">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1C-7m-yk3">
                                 <rect key="frame" x="169" y="510" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="InfoButton" backgroundImage="Button-Normal"/>
@@ -152,34 +152,47 @@
         <scene sceneID="npy-FH-tIR">
             <objects>
                 <viewController id="8lN-fZ-ltV" customClass="WebViewController" customModule="Week01" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="b3t-0o-Jkv">
+                    <view key="view" contentMode="scaleToFill" id="f3R-qo-cfg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9SY-kr-mQ0">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqy-CH-dNE">
                                 <rect key="frame" x="10" y="10" width="355" height="580"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gn8-dC-Meh">
-                                <rect key="frame" x="137" y="600" width="100" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Close" backgroundImage="Button-Normal"/>
-                                <state key="highlighted" backgroundImage="Button-Highlighted"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8i4-17-iBc">
+                                <rect key="frame" x="137.5" y="600" width="100" height="37"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Close" backgroundImage="Button-Normal">
+                                    <color key="titleColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="highlighted" title="Close" backgroundImage="Button-Highlighted">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="btnCloseTapped:" destination="8lN-fZ-ltV" eventType="touchUpInside" id="Bnf-BY-7kI"/>
+                                    <action selector="btnCloseTapped:" destination="8lN-fZ-ltV" eventType="touchUpInside" id="rLk-cM-xDl"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="IuF-Av-5aw"/>
+                        <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tIo-Y7-thq" firstAttribute="trailing" secondItem="qqy-CH-dNE" secondAttribute="trailing" constant="10" id="DHk-pr-cIU"/>
+                            <constraint firstItem="8i4-17-iBc" firstAttribute="centerX" secondItem="f3R-qo-cfg" secondAttribute="centerX" id="NdT-c7-uls"/>
+                            <constraint firstItem="qqy-CH-dNE" firstAttribute="leading" secondItem="tIo-Y7-thq" secondAttribute="leading" constant="10" id="fvK-gd-fgQ"/>
+                            <constraint firstItem="8i4-17-iBc" firstAttribute="top" secondItem="qqy-CH-dNE" secondAttribute="bottom" constant="10" id="hw4-t0-gQY"/>
+                            <constraint firstItem="tIo-Y7-thq" firstAttribute="bottom" secondItem="8i4-17-iBc" secondAttribute="bottom" constant="10" id="m2c-o6-LvL"/>
+                            <constraint firstItem="qqy-CH-dNE" firstAttribute="top" secondItem="tIo-Y7-thq" secondAttribute="top" constant="10" id="tei-lv-GpD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tIo-Y7-thq"/>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="9SY-kr-mQ0" id="1Vu-GC-b40"/>
+                        <outlet property="webView" destination="qqy-CH-dNE" id="dVm-cU-MlK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HG-Mh-1YK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

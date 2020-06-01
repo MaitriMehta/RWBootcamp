@@ -14,7 +14,7 @@ class WebViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var url: URL!
+        let url: URL!
         url = URL(string: "https://en.wikipedia.org/wiki/RGB_color_model")
         if let wikiURL = url {
             let urlRequest = URLRequest(url: wikiURL)
