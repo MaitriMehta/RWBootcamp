@@ -1,0 +1,25 @@
+Create an RGB Color Picker
+RGB is a Color Model where a combination of Red, Green and Blue values are combined to create millions of different colors. Each value is represented by an integer from 0 to 255.
+
+Your task is to create an app that allows users to pick a Red, Blue and Green value within this integer range and use the resulting values to color the background of the app appropriately.
+
+The UI should consist of the following:
+A label near the top of the view (for displaying a color name)
+3 Sliders, one representing each color range
+A label above each slider (Used to indicate what that slider is for)
+3 labels, each positioned next to a slider, capable of displaying a string
+A button called “Set Color”
+A button called “Reset”
+
+The sliders should default to the leftmost position, and the labels should show 0 by default. The title labels above the sliders should read “Red”, “Green” and “Blue” in that order.
+
+When moving a slider, the label to its right should update with an integer from 0 - 255.
+
+When the “Set Color” button is hit, an alert should appear asking the user to enter a color name (the name doesn’t control the color - it’s just a label like ‘my color’!). Once a name is entered and the user presses “Enter” on the keyboard, the background of the app should change to a color corresponding to the RGB values entered by the sliders and their color name should appear in the top label. The alpha value should be hard-coded to 1.0, as we won’t be addressing transparency here.
+
+When “Reset” is hit, the sliders, labels and background color should return to the default values.
+
+The app should have a splash screen and app icon (see Resources below).
+The app should work in landscape and portrait orientation.
+The app should have an info button that presents the wikipedia page for RGB. That page should have a Close button to dismiss it.
+
