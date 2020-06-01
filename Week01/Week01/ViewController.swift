@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func reset(){
-        lblColorName.text = "Pick the Color from slider"
+      lblColorName.text = "Pick the Color from slider"
         sliderRed.value = 0
         sliderBlue.value = 0
         sliderGreen.value = 0

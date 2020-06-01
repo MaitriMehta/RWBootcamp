@@ -15,12 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-mc-9bG">
-                                <rect key="frame" x="0.0" y="35" width="414" height="902"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-mc-9bG">
+                                <rect key="frame" x="0.0" y="310" width="414" height="276"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6FD-mc-9bG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BWB-Hr-rzj"/>
+                            <constraint firstItem="6FD-mc-9bG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HHR-WA-UAv"/>
+                            <constraint firstItem="6FD-mc-9bG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="266" id="px9-8E-ggs"/>
+                            <constraint firstItem="6FD-mc-9bG" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="rqm-b2-2BG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
