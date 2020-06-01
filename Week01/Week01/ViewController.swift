@@ -92,7 +92,7 @@ class ViewController: UIViewController {
     }
     
     func updateColor(red:Int,green:Int,blue:Int){
-        view.backgroundColor = UIColor.init(displayP3Red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1.0)
+        view.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
     }
 
     @IBAction func modeChanged(_ sender: Any){
