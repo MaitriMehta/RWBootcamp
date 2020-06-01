@@ -81,10 +81,7 @@ class ViewController: UIViewController {
         lblBlue.text = String(blue)
         updateSliderColor(red: red, green: green, blue: blue)
     }
-    
-    @IBAction func infoTapped(){
-        
-    }
+ 
     
     func updateSliderColor(red:Int,green:Int,blue:Int){
         lblColorName.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)

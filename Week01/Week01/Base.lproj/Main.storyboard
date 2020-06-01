@@ -38,7 +38,7 @@
                                         <state key="normal" image="InfoButton" backgroundImage="Button-Normal"/>
                                         <state key="highlighted" image="InfoButton" backgroundImage="Button-Highlighted"/>
                                         <connections>
-                                            <action selector="infoTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="ABw-EW-joi"/>
+                                            <segue destination="8lN-fZ-ltV" kind="presentation" id="EhV-if-sqj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7E-J5-L9R">
@@ -157,11 +157,11 @@
             <objects>
                 <viewController id="8lN-fZ-ltV" customClass="WebViewController" customModule="Week01" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f3R-qo-cfg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqy-CH-dNE">
-                                <rect key="frame" x="10" y="10" width="355" height="600"/>
+                                <rect key="frame" x="10" y="10" width="355" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -169,7 +169,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8i4-17-iBc">
-                                <rect key="frame" x="137.5" y="620" width="100" height="37"/>
+                                <rect key="frame" x="137.5" y="600" width="100" height="37"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
                                 <state key="normal" title="Close" backgroundImage="Button-Normal">
