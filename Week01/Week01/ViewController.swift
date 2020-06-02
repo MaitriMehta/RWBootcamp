@@ -63,7 +63,8 @@ class ViewController: UIViewController {
         red = 0
         blue = 0
         green = 0
-        
+        updateColor(red: red, green: green, blue: blue)
+        lblColorName.backgroundColor = .clear
     }
   @IBAction func redSliderMoved(_ slider: UISlider){
       red = Int(slider.value.rounded())
@@ -85,11 +86,17 @@ class ViewController: UIViewController {
     
     func updateSliderColor(red:Int,green:Int,blue:Int){
         lblColorName.backgroundColor = UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: 1.0)
-        print("\(red) , \(green) , \(blue)")
     }
     
     func updateColor(red:Int,green:Int,blue:Int){
         view.backgroundColor = UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: 1.0)
+        
+        if(red,green,blue) == (255,255,255){
+            lblColorName.textColor = .black
+        }else{
+            lblColorName.textColor = .white
+
+        }
     }
 
     @IBAction func modeChanged(_ sender: Any){
