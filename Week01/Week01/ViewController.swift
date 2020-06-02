@@ -8,15 +8,15 @@
 
 import UIKit
 
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        let newRed = CGFloat(red)/255
-        let newGreen = CGFloat(green)/255
-        let newBlue = CGFloat(blue)/255
-        
-        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
-    }
-}
+//extension UIColor {
+//    convenience init(red: Int, green: Int, blue: Int) {
+//        let newRed = CGFloat(red)/255
+//        let newGreen = CGFloat(green)/255
+//        let newBlue = CGFloat(blue)/255
+//
+//        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+//    }
+//}
 
 class ViewController: UIViewController {
     @IBOutlet weak var sliderRed: UISlider!
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
   @IBAction func redSliderMoved(_ slider: UISlider){
       red = Int(slider.value.rounded())
       lblRed.text = String(red)
-    updateSliderColor(red: red, green: green, blue: blue)
+      updateSliderColor(red: red, green: green, blue: blue)
     
   }
   @IBAction func greenSliderMoved(_ slider: UISlider){
@@ -84,12 +84,12 @@ class ViewController: UIViewController {
  
     
     func updateSliderColor(red:Int,green:Int,blue:Int){
-        lblColorName.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
+        lblColorName.backgroundColor = UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: 1.0)
         print("\(red) , \(green) , \(blue)")
     }
     
     func updateColor(red:Int,green:Int,blue:Int){
-        view.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
+        view.backgroundColor = UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: 1.0)
     }
 
     @IBAction func modeChanged(_ sender: Any){
