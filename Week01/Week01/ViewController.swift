@@ -95,6 +95,5 @@ class ViewController: UIViewController {
     @IBAction func modeChanged(_ sender: Any){
         
     }
-
 }
 
