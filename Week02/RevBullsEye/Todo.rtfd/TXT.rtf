@@ -1,0 +1,136 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fswiss\fcharset0 ArialMT;\f2\froman\fcharset0 Times-Bold;
+\f3\fnil\fcharset0 ComicSansMS;\f4\fnil\fcharset0 ComicSansMS-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red16\green60\blue192;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c6667\c33333\c80000;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl580\sa160\partightenfactor0
+
+\f1\fs42\fsmilli21333 \cf2 Stretch Above and Beyond: RevBullsEye
+\f2\b\fs36 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\b0\fs29\fsmilli14667 \cf2 These requirements are optional, in case you have time to push further.
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs29\fsmilli14667 \cf2 Another way to test your game model is to \'e2\'80\'9creverse\'e2\'80\uc0\u157  the BullsEye game. Instead of moving the slider to match a displayed number, the game presents the slider with its thumb already positioned at the target value. The user then enters a guess for that value in a text field.
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f4\b\fs29\fsmilli14667 \cf2 Note
+\f3\b0 : You can set the text field\'e2\'80\'99s 
+\f4\b Keyboard Type
+\f3\b0  to 
+\f4\b Number Pad 
+\f3\b0 in the attribute inspector. Look in the 
+\f4\b Text Input Traits
+\f3\b0  section. This doesn\'e2\'80\'99t prevent you from entering non-numbers from your Mac\'e2\'80\'99s keyboard. If you don\'e2\'80\'99t see the keyboard in the simulator, look at the 
+\f4\b Simulator > I/O > Keyboard
+\f3\b0  menu.
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs29\fsmilli14667 \cf2 {{\NeXTGraphic rVi3rfU7DIhSZufqVwS7P-8OEp1J_LwoMDaFx8UPd-DSiCJ3VX01ARMSGWB1scVi6GaddbEsb1vuEEz2xlFEVJXTmNF1YjDmC0nqW5hD6PzjuuqpoO0dR3LNDz_QHU_pOHUC2ScS.png \width32000 \height14780 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\fs24 \cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs29\fsmilli14667 \cf2 Create a new project, named something like 
+\f4\b RevBullsEye
+\f3\b0 . You\'e2\'80\'99ll be changing the UI and view controller, 
+\f4\b not the model
+\f3\b0 ! The game logic doesn\'e2\'80\'99t change: The user makes a guess, which the model checks against the target, then calculates the score.
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs29\fsmilli14667 \cf2 You\'e2\'80\'99ll need to work with an 
+\f4\b optional
+\f3\b0  to change the 
+\f4\b String
+\f3\b0  in the text field into an 
+\f4\b Int
+\f3\b0 . This is because 
+\f4\b Int(_: String) 
+\f3\b0 returns 
+\f4\b Int?
+\f3\b0  \'e2\'80\'94\'c2\'a0not all Strings can be converted to an Int.\'c2\'a0
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs29\fsmilli14667 \cf2 In landscape, you'll need a way to dismiss the (software) keyboard so you can tap the 
+\f4\b Hit Me! 
+\f3\b0 button. The easiest way is to drag a 
+\f4\b Tap Gesture Recognizer
+\f3\b0  onto the view controller and connect it to an IBAction like this:
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs29\fsmilli14667 \cf2 \'c2\'a0\'c2\'a0@IBAction func tapped(sender: AnyObject) \{
+\f0\fs24 \
+
+\f3\fs29\fsmilli14667 \'c2\'a0\'c2\'a0\'c2\'a0\'c2\'a0view.endEditing(true)
+\f0\fs24 \
+
+\f3\fs29\fsmilli14667 \'c2\'a0\'c2\'a0\}
+\f0\fs24 \
+
+\f3\fs29\fsmilli14667 \uc0\u8232 Try to figure out how to help the user, perhaps by changing the alpha value of something colored. You\'e2\'80\'99ll need to \'e2\'80\'9cwatch\'e2\'80\u157  what the user types in the text field, so you can show your hint as soon as they type a number. Then the user can keep adjusting their guess before they tap 
+\f4\b Hit Me!
+\f3\b0 .\'c2\'a0
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs29\fsmilli14667 \cf2 One way is to make the view controller the 
+\f4\b delegate
+\f3\b0  of the text field, then implement 
+\f4\b textfieldDidBeginEditing(_:)
+\f3\b0 . Another way is to add a target of 
+\f4\b .editingChange
+\f3\b0  \'e2\'80\'94\'c2\'a0see {\field{\*\fldinst{HYPERLINK "https://levelup.gitconnected.com/differentiate-uitextfield-delegate-and-editingchange-usage-c7abe7439faa"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 Differentiate UITextField delegate and .editingChange usage}}.
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs29\fsmilli14667 \cf2 You could use either of these techniques to prevent the user from submitting text that won\'e2\'80\'99t work, either because the text isn\'e2\'80\'99t a number or it\'e2\'80\'99s a number outside the slider\'e2\'80\'99s range. If you create an outlet for the 
+\f4\b Hit Me!
+\f3\b0  button, you can disable it while the user is typing and enable it only if the text can be converted to an Int in the correct range.
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs29\fsmilli14667 \cf2 Have fun with text fields!
+\f0\fs24 \
+\pard\pardeftab720\sl580\sa160\partightenfactor0
+
+\f3\fs42\fsmilli21333 \cf2 Resources
+\f2\b\fs36 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\b0\fs29\fsmilli14667 \cf2 Feel free to find/create your own app icons and splash screen storyboard, or use the ones here: {\field{\*\fldinst{HYPERLINK "https://github.com/raywenderlich/MyRWTutorial/tree/master/UIKit/MyRWTutorial"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 https://github.com/raywenderlich/MyRWTutorial/tree/master/UIKit/MyRWTutorial}}
+\f0\fs24 \
+}

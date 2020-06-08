@@ -15,8 +15,9 @@ class ViewController: UIViewController {
   @IBOutlet weak var targetLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
-    
-  //MARK: - Initializer
+  @IBOutlet var textField: UITextField!
+  @IBOutlet weak var titleLabel: UILabel!
+    //MARK: - Initializer
   var bullsEyeGame = BullsEyeGame()
   var quickDiff: Int {
      return abs(bullsEyeGame.targetValue - bullsEyeGame.currentValue)
@@ -82,4 +83,14 @@ class ViewController: UIViewController {
     roundLabel.text = String(bullsEyeGame.round)
     slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDiff)/100.0)
   }
+  
+  //:Textfeild Delegate
+    @IBAction func textfieldDidBeginEditing(){
+        
+    }
+    
+    @IBAction func textfieldEditingChanged(){
+        guard let value = textField.text else{ return }
+        
+    }
 }

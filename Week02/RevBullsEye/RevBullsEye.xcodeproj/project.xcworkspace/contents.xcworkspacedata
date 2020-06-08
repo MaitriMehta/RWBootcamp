@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:RevBullsEye.xcodeproj">
+      location = "self:/Users/maitri_mehta/Documents/MustDo/RWBootcamp/Week02/RevBullsEye/BullsEye/RevBullsEye.xcodeproj">
    </FileRef>
 </Workspace>

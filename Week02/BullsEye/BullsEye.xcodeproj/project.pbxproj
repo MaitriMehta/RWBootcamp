@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1988D0E9248C4C0C002F3DA3 /* Todo.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1988D0E8248C4C0C002F3DA3 /* Todo.rtf */; };
+		1988D0E9248C4C0C002F3DA3 /* Todo.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 1988D0E8248C4C0C002F3DA3 /* Todo.rtfd */; };
 		1988D0EC248C4D64002F3DA3 /* BullsEyeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1988D0EB248C4D64002F3DA3 /* BullsEyeGame.swift */; };
 		19BC5230248D4BDA007DB532 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BC522F248D4BDA007DB532 /* Constants.swift */; };
 		352A679920D171E800D5BF05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A679820D171E800D5BF05 /* AppDelegate.swift */; };
@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1988D0E8248C4C0C002F3DA3 /* Todo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Todo.rtf; sourceTree = "<group>"; };
+		1988D0E8248C4C0C002F3DA3 /* Todo.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = Todo.rtfd; sourceTree = "<group>"; };
 		1988D0EB248C4D64002F3DA3 /* BullsEyeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeGame.swift; sourceTree = "<group>"; };
 		19BC522F248D4BDA007DB532 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		19BC5237248E1325007DB532 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				19BC5237248E1325007DB532 /* README.md */,
-				1988D0E8248C4C0C002F3DA3 /* Todo.rtf */,
+				1988D0E8248C4C0C002F3DA3 /* Todo.rtfd */,
 				352A679720D171E800D5BF05 /* BullsEye */,
 				352A679620D171E800D5BF05 /* Products */,
 				AB112383248EB3B300A8BCED /* Frameworks */,
@@ -211,7 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1988D0E9248C4C0C002F3DA3 /* Todo.rtf in Resources */,
+				1988D0E9248C4C0C002F3DA3 /* Todo.rtfd in Resources */,
 				352A67A320D171EA00D5BF05 /* LaunchScreen.storyboard in Resources */,
 				352A67A020D171EA00D5BF05 /* Assets.xcassets in Resources */,
 				AB112382248EA9E500A8BCED /* Main.storyboard in Resources */,

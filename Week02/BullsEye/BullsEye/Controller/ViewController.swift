@@ -19,6 +19,10 @@ class ViewController: UIViewController {
   //MARK: - Initializer
   var bullsEyeGame = BullsEyeGame()
   
+  var quickDiff: Int {
+    return abs(bullsEyeGame.targetValue - bullsEyeGame.currentValue)
+  }
+    
   //MARK: - UIViewController Methods
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -58,6 +62,9 @@ class ViewController: UIViewController {
      let trackRightImage = #imageLiteral(resourceName: "SliderTrackRight")
      let trackRightResizable = trackRightImage.resizableImage(withCapInsets: insets)
      slider.setMaximumTrackImage(trackRightResizable, for: .normal)
+    
+     slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDiff)/100.0)
+
   }
   @IBAction func sliderMoved(_ slider: UISlider) {
       let roundedValue = slider.value.rounded()
@@ -76,5 +83,7 @@ class ViewController: UIViewController {
     targetLabel.text = String(bullsEyeGame.targetValue)
     scoreLabel.text = String(bullsEyeGame.score)
     roundLabel.text = String(bullsEyeGame.round)
+    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDiff)/100.0)
+
   }
 }
