@@ -17,6 +17,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var roundLabel: UILabel!
   @IBOutlet var textField: UITextField!
   @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var hitMeButton : UIButton!
     //MARK: - Initializer
   var bullsEyeGame = BullsEyeGame()
   var quickDiff: Int {
@@ -31,8 +32,16 @@ class ViewController: UIViewController {
     
     let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeypad))
     view.addGestureRecognizer(tap)
+    
+    RevBullsEyeView()
   }
-
+  
+  func RevBullsEyeView (){
+        textField.isHidden = false
+        targetLabel.isHidden = true
+        slider.isUserInteractionEnabled = false
+  }
+    
   //MARK:- IBAction Events
   @IBAction func showAlert() {
     
@@ -80,11 +89,14 @@ class ViewController: UIViewController {
   }
     
   func updateViews() {
+    textField.text = ""
+    hitMeButton.isEnabled = false
     slider.value = Float(bullsEyeGame.currentValue)
-    targetLabel.text = String(bullsEyeGame.targetValue)
-    scoreLabel.text = String(bullsEyeGame.score)
-    roundLabel.text = String(bullsEyeGame.round)
-    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDiff)/100.0)
+//    targetLabel.text = String(bullsEyeGame.targetValue)
+//    scoreLabel.text = String(bullsEyeGame.score)
+//    roundLabel.text = String(bullsEyeGame.round)
+//    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDiff)/100.0)
+ 
   }
   
   //:Textfeild Delegate
@@ -94,6 +106,8 @@ class ViewController: UIViewController {
     
     @IBAction func textfieldEditingChanged(){
         guard let value = textField.text else{ return }
+        print(value)
+        
     }
     
     @objc func dismissKeypad(){
