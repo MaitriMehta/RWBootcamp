@@ -28,6 +28,9 @@ class ViewController: UIViewController {
     bullsEyeGame.startNewRound()
     updateViews()
     updateSliderView()
+    
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeypad))
+    view.addGestureRecognizer(tap)
   }
 
   //MARK:- IBAction Events
@@ -91,6 +94,13 @@ class ViewController: UIViewController {
     
     @IBAction func textfieldEditingChanged(){
         guard let value = textField.text else{ return }
+    }
+    
+    @objc func dismissKeypad(){
+        textField.endEditing(true)
+    }
+
+    @IBAction func toggleButtonTapped(){
         
     }
 }

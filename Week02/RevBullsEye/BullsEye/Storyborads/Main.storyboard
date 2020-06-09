@@ -140,6 +140,14 @@
                                     <constraint firstAttribute="width" constant="541" id="eU9-nc-zwL"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3D-Ch-SIM">
+                                <rect key="frame" x="608" y="9" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="SliderThumb-Normal"/>
+                                <connections>
+                                    <action selector="toggleButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="8OO-Mm-Hq0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -163,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-160.56971514242881" y="45.600000000000001"/>
+            <point key="canvasLocation" x="-216" y="14"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="rfi-S6-iVf">
@@ -287,6 +295,7 @@ When Ray’s not programming, he’s probably playing video games, role playing 
         <image name="Button-Normal" width="100" height="37"/>
         <image name="InfoButton" width="10" height="22"/>
         <image name="RayWithBooks" width="1200" height="1200"/>
+        <image name="SliderThumb-Normal" width="32" height="32"/>
         <image name="SmallButton" width="32" height="32"/>
         <image name="StartOverIcon" width="20" height="20"/>
     </resources>
