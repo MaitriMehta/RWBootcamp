@@ -45,11 +45,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
   //MARK:- IBAction Events
   @IBAction func showAlert() {   
     guard let userGuess = textField.text else{ return }
-    print(userGuess)
-    //(1...100).contains(input)
     let input = Int(userGuess)
     bullsEyeGame.currentValue = input!
-    print(userGuess)
     let score = bullsEyeGame.calculateScore(guessValue: input ?? 0)
     let message = "You scored \(score.points) points"//needs to be generalized ?
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -96,7 +93,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     textField.text = ""
     hitMeButton.isEnabled = false
     slider.value = Float(bullsEyeGame.targetValue)
-    print(bullsEyeGame.targetValue)
     roundLabel.text = "\(bullsEyeGame.round)"
     scoreLabel.text = "\(bullsEyeGame.score)"
   }
