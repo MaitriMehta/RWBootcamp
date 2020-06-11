@@ -17,7 +17,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var roundLabel: UILabel!
   @IBOutlet var textField: UITextField!
   @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var hitMeButton : UIButton!
+  @IBOutlet weak var hitMeButton : UIButton!
     //MARK: - Initializer
   var bullsEyeGame = BullsEyeGame()
   var quickDiff: Int {
@@ -43,9 +43,14 @@ class ViewController: UIViewController {
   }
     
   //MARK:- IBAction Events
-  @IBAction func showAlert() {
-    
-    let score = bullsEyeGame.calculateScore()
+  @IBAction func showAlert() {   
+    guard let userGuess = textField.text else{ return }
+    print(userGuess)
+    //(1...100).contains(input)
+    let input = Int(userGuess)
+    bullsEyeGame.currentValue = input!
+    print(userGuess)
+    let score = bullsEyeGame.calculateScore(guessValue: input ?? 0)
     let message = "You scored \(score.points) points"//needs to be generalized ?
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     let action = UIAlertAction(title: alertOkButtonText, style: .default, handler: {
@@ -55,6 +60,7 @@ class ViewController: UIViewController {
     })
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
+    updateViews()
   }
     
   func updateSliderView(){
@@ -77,41 +83,31 @@ class ViewController: UIViewController {
 
   }
   @IBAction func sliderMoved(_ slider: UISlider) {
-      let roundedValue = slider.value.rounded()
-      bullsEyeGame.currentValue = Int(roundedValue)
+      bullsEyeGame.currentValue = Int(slider.value.rounded())
   }
     
   @IBAction func startNewGame() {
     bullsEyeGame.resetGame()
     bullsEyeGame.startNewRound()
     updateViews()
-
   }
     
   func updateViews() {
     textField.text = ""
     hitMeButton.isEnabled = false
-    slider.value = Float(bullsEyeGame.currentValue)
-//    targetLabel.text = String(bullsEyeGame.targetValue)
-//    scoreLabel.text = String(bullsEyeGame.score)
-//    roundLabel.text = String(bullsEyeGame.round)
-//    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDiff)/100.0)
- 
+    slider.value = Float(bullsEyeGame.targetValue)
+    print(bullsEyeGame.targetValue)
+    roundLabel.text = "\(bullsEyeGame.round)"
+    scoreLabel.text = "\(bullsEyeGame.score)"
   }
-  
-  //:Textfeild Delegate
-    @IBAction func textfieldDidBeginEditing(){
-        
-    }
     
     @IBAction func textfieldEditingChanged(){
-        guard let value = textField.text else{ return }
-        print(value)
-        
+      
     }
     
     @objc func dismissKeypad(){
         textField.endEditing(true)
+        hitMeButton.isEnabled = true
     }
 
     @IBAction func toggleButtonTapped(){

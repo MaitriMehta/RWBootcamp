@@ -29,14 +29,14 @@ struct BullsEyeGame {
   mutating func startNewRound() {
     round += 1
     targetValue = Int.random(in: 1...100)
-    currentValue = 50
+//    currentValue = 50
   }
   
   mutating func getDifference(a: Int, b: Int) -> Int {
     return abs(a - b)
   }
-  
-  mutating func calculateScore() -> Score {
+    
+  mutating func calculateScore(guessValue : Int) -> Score {
     let title: String
     let difference = getDifference(a:targetValue, b: currentValue)
     var points = 100 - difference
