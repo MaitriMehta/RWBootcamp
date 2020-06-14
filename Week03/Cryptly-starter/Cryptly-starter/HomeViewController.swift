@@ -44,6 +44,9 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var themeSwitch: UISwitch!
   
   let cryptoData = DataGenerator.shared.generateData()
+  let commaSeperatedCryptoNames: (String, CryptoCurrency) -> String = { result, crypto in
+      return (result != "") ? "\(result), \(crypto.name)" : crypto.name
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -96,7 +99,10 @@ class HomeViewController: UIViewController{
     view2TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
   }
   
-  func setView1Data() {
+  func setView1Data() {//every currency you own.
+    guard let cryptoData = cryptoData else { return }
+    let allCurrencyNames = cryptoData.reduce("", commaSeperatedCryptoNames)
+    view1TextLabel.text = allCurrencyNames
   }
   
   func setView2Data() {
