@@ -111,8 +111,10 @@ class HomeViewController: UIViewController{
     view2TextLabel.text = increasedCurrencyNames
   }
   
-  func setView3Data() {
-    
+  func setView3Data() {// every currency which decreased from its previous value
+    guard let cryptoData = cryptoData else { return }
+    let decreasedCurrencyNames = cryptoData.filter { $0.currentValue < $0.previousValue }.reduce("", commaSeperatedCryptoNames)
+    view3TextLabel.text = decreasedCurrencyNames
   }
   
 
