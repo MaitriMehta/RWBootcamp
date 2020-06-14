@@ -31,4 +31,10 @@
   "symbol": "NXT",
   "currentValue": 39,
   "previousValue": 29
+},
+{
+  "name": "XYZ",
+  "symbol": "XYZ",
+  "currentValue": 50,
+  "previousValue": 49
 }]

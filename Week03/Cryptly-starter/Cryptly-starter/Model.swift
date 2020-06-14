@@ -33,4 +33,10 @@
 import Foundation
 
 struct CryptoCurrency: Codable {
+  
+  let name : String
+  let symbol : String
+  var currentValue : Double
+  var previousValue : Double
+
 }

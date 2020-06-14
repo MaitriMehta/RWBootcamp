@@ -42,7 +42,9 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
-    
+  
+  let cryptoData = DataGenerator.shared.generateData()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
@@ -50,6 +52,7 @@ class HomeViewController: UIViewController{
     setView1Data()
     setView2Data()
     setView3Data()
+    print(cryptoData as Any)
   }
   
   override func viewWillAppear(_ animated: Bool) {
