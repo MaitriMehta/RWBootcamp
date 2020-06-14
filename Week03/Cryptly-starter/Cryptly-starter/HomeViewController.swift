@@ -101,15 +101,21 @@ class HomeViewController: UIViewController{
   
   func setView1Data() {//every currency you own.
     guard let cryptoData = cryptoData else { return }
-    let allCurrencyNames = cryptoData.reduce("", commaSeperatedCryptoNames)
-    view1TextLabel.text = allCurrencyNames
+    let allOwenedCurrencyNames = cryptoData.reduce("", commaSeperatedCryptoNames)
+    view1TextLabel.text = allOwenedCurrencyNames
   }
   
-  func setView2Data() {
+  func setView2Data() {//every currency which increased from its previous value
+    guard let cryptoData = cryptoData else { return }
+    let increasedCurrencyNames = cryptoData.filter { $0.currentValue > $0.previousValue }.reduce("", commaSeperatedCryptoNames)
+    view2TextLabel.text = increasedCurrencyNames
   }
   
   func setView3Data() {
+    
   }
+  
+
   
   @IBAction func switchPressed(_ sender: Any) {
   }
