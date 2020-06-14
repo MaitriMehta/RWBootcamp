@@ -44,8 +44,8 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var themeSwitch: UISwitch!
   
   let cryptoData = DataGenerator.shared.generateData()
-  let commaSeperatedCryptoNames: (String, CryptoCurrency) -> String = { result, crypto in
-      return (result != "") ? "\(result), \(crypto.name)" : crypto.name
+  let commaSeperatedCryptoNames: (String, CryptoCurrency) -> String = {
+      return ($0 != "") ? "\($0), \($1.name)" : $1.name
   }
   
   override func viewDidLoad() {
@@ -60,14 +60,17 @@ class HomeViewController: UIViewController{
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    registerForTheme()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    unregisterForTheme()
   }
 
   func setupViews() {
-      
+    ThemeManager.shared.currentTheme = LightTheme()
+
     view1.backgroundColor = .systemGray6
     view1.layer.borderColor = UIColor.lightGray.cgColor
     view1.layer.borderWidth = 1.0
@@ -103,6 +106,7 @@ class HomeViewController: UIViewController{
     guard let cryptoData = cryptoData else { return }
     let allOwenedCurrencyNames = cryptoData.reduce("", commaSeperatedCryptoNames)
     view1TextLabel.text = allOwenedCurrencyNames
+    
   }
   
   func setView2Data() {//every currency which increased from its previous value
@@ -117,8 +121,34 @@ class HomeViewController: UIViewController{
     view3TextLabel.text = decreasedCurrencyNames
   }
   
-
-  
   @IBAction func switchPressed(_ sender: Any) {
+    ThemeManager.shared.set(theme: themeSwitch.isOn ? DarkTheme() : LightTheme())
+  }
+}
+
+extension HomeViewController: Themeable {
+
+  func registerForTheme() {
+    NotificationCenter.default.addObserver(self, selector: #selector(themeChanged), name: type(of: ThemeManager.themeChangeNotification).init("themeChanged"), object: nil)
+  }
+  
+  func unregisterForTheme() {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
+  @objc func themeChanged() {
+    
+    guard let theme = ThemeManager.shared.currentTheme else { return }
+    
+    let views = [view1, view2, view3]
+    _ = views.map { $0?.backgroundColor = theme.widgetBackgroundColor }
+    _ = views.map { $0?.layer.borderColor = theme.borderColor.cgColor }
+    
+    let viewTextLabels = [view1TextLabel, view2TextLabel, view3TextLabel]
+    _ = viewTextLabels.map { $0?.textColor = theme.textColor }
+    headingLabel.textColor = theme.textColor
+    
+    self.view.backgroundColor = ThemeManager.shared.currentTheme?.backgroundColor
+
   }
 }
