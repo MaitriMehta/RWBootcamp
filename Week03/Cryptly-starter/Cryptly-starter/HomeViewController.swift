@@ -37,12 +37,16 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view1: UIView!
   @IBOutlet weak var view2: UIView!
   @IBOutlet weak var view3: UIView!
+  @IBOutlet weak var view4: UIView!
+  @IBOutlet weak var view5: UIView!
   @IBOutlet weak var headingLabel: UILabel!
   @IBOutlet weak var view1TextLabel: UILabel!
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
+  @IBOutlet weak var mostRisingLabel: UILabel!
   
+  @IBOutlet weak var mostFallingLabel: UILabel!
   let cryptoData = DataGenerator.shared.generateData()
   let commaSeperatedCryptoNames: (String, CryptoCurrency) -> String = {
       return ($0 != "") ? "\($0), \($1.name)" : $1.name
@@ -94,6 +98,23 @@ class HomeViewController: UIViewController{
     view3.layer.shadowOffset = CGSize(width: 0, height: 2)
     view3.layer.shadowRadius = 4
     view3.layer.shadowOpacity = 0.8
+    
+    view4.backgroundColor = .systemGray6
+    view4.layer.borderColor = UIColor.lightGray.cgColor
+    view4.layer.borderWidth = 1.0
+    view4.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+    view4.layer.shadowOffset = CGSize(width: 0, height: 2)
+    view4.layer.shadowRadius = 4
+    view4.layer.shadowOpacity = 0.8
+    
+    view5.backgroundColor = .systemGray6
+    view5.layer.borderColor = UIColor.lightGray.cgColor
+    view5.layer.borderWidth = 1.0
+    view5.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+    view5.layer.shadowOffset = CGSize(width: 0, height: 2)
+    view5.layer.shadowRadius = 4
+    view5.layer.shadowOpacity = 0.8
+    
   }
   
   func setupLabels() {
@@ -140,7 +161,7 @@ extension HomeViewController: Themeable {
     
     guard let theme = ThemeManager.shared.currentTheme else { return }
     
-    let views = [view1, view2, view3]
+    let views = [view1, view2, view3, view4, view5]
     _ = views.map { $0?.backgroundColor = theme.widgetBackgroundColor }
     _ = views.map { $0?.layer.borderColor = theme.borderColor.cgColor }
     
