@@ -1,7 +1,7 @@
 Name : 
 ![Maitri Mehta](https://github.com/MaitriMehta/RWBootcamp/blob/master/Week01/MaitriMehtaBioPic.jpg)
 
-Discord : TS Maitri
+Discord : Maitri#5095
 
 Basic Location : USA, California
 
