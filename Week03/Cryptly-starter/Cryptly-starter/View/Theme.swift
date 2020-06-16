@@ -32,11 +32,7 @@
 
 import Foundation
 import UIKit
-/*backgroundColor of type UIColor - View’s background color
-textColor of type UIColor - Text Colors
-borderColor of type UIColor - Border color of views which contain data
-widgetBackgroundColor - BackgroundColor of views which contain data
-*/
+
 protocol Theme {
   var backgroundColor: UIColor { get }
   var textColor: UIColor { get }
@@ -54,12 +50,12 @@ struct LightTheme: Theme {
   var backgroundColor: UIColor = .white
   var textColor: UIColor = .darkText
   var borderColor: UIColor = .darkGray
-  var widgetBackgroundColor: UIColor = UIColor.init(red: 242/255.0, green: 242/255.0, blue: 242/255.0, alpha: 1.0)
+  var widgetBackgroundColor: UIColor = Color.lightTheme
 }
 
 struct DarkTheme: Theme {
   var backgroundColor: UIColor = .black
   var textColor: UIColor = .lightText
   var borderColor: UIColor = .lightGray
-  var widgetBackgroundColor: UIColor = UIColor.init(red: 142/255.0, green: 142/255.0, blue: 142/255.0, alpha: 1.0)
+  var widgetBackgroundColor: UIColor = Color.darkTheme
 }

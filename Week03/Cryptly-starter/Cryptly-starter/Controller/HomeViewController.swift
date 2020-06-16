@@ -31,9 +31,12 @@
 /// THE SOFTWARE.
 
 import UIKit
+import QuartzCore
+
 
 class HomeViewController: UIViewController{
-
+  
+  //MARK: - IBOutlets
   @IBOutlet weak var view1: UIView!
   @IBOutlet weak var view2: UIView!
   @IBOutlet weak var view3: UIView!
@@ -45,21 +48,32 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
   @IBOutlet weak var mostRisingLabel: UILabel!
-  
   @IBOutlet weak var mostFallingLabel: UILabel!
+  @IBOutlet weak var mostFallingHeading: UILabel!
+  @IBOutlet weak var mostRisingHeading: UILabel!
+  
+  //MARK: - Initializer
   let cryptoData = DataGenerator.shared.generateData()
   let commaSeperatedCryptoNames: (String, CryptoCurrency) -> String = {
       return ($0 != "") ? "\($0), \($1.name)" : $1.name
   }
   
+  enum Currency {
+    case all
+    case increased
+    case decreased
+  }
+  
+  //MARK: - UIViewController Methods
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViews()
+    setupViewTheme()
     setupLabels()
     setView1Data()
     setView2Data()
     setView3Data()
-    print(cryptoData as Any)
+    setFallingView()
+    setRisingView()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -72,81 +86,62 @@ class HomeViewController: UIViewController{
     unregisterForTheme()
   }
 
-  func setupViews() {
+  //MARK:- functions - Update UI
+  func setupViewTheme() {
     ThemeManager.shared.currentTheme = LightTheme()
-
-    view1.backgroundColor = .systemGray6
-    view1.layer.borderColor = UIColor.lightGray.cgColor
-    view1.layer.borderWidth = 1.0
-    view1.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view1.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view1.layer.shadowRadius = 4
-    view1.layer.shadowOpacity = 0.8
-    
-    view2.backgroundColor = .systemGray6
-    view2.layer.borderColor = UIColor.lightGray.cgColor
-    view2.layer.borderWidth = 1.0
-    view2.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view2.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view2.layer.shadowRadius = 4
-    view2.layer.shadowOpacity = 0.8
-    
-    view3.backgroundColor = .systemGray6
-    view3.layer.borderColor = UIColor.lightGray.cgColor
-    view3.layer.borderWidth = 1.0
-    view3.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view3.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view3.layer.shadowRadius = 4
-    view3.layer.shadowOpacity = 0.8
-    
-    view4.backgroundColor = .systemGray6
-    view4.layer.borderColor = UIColor.lightGray.cgColor
-    view4.layer.borderWidth = 1.0
-    view4.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view4.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view4.layer.shadowRadius = 4
-    view4.layer.shadowOpacity = 0.8
-    
-    view5.backgroundColor = .systemGray6
-    view5.layer.borderColor = UIColor.lightGray.cgColor
-    view5.layer.borderWidth = 1.0
-    view5.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view5.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view5.layer.shadowRadius = 4
-    view5.layer.shadowOpacity = 0.8
-    
   }
   
   func setupLabels() {
-    headingLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-    view1TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-    view2TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+    headingLabel.font = Font.header
+    view1TextLabel.font = Font.textLabel
+    view2TextLabel.font = Font.textLabel
   }
   
   func setView1Data() {//every currency you own.
     guard let cryptoData = cryptoData else { return }
     let allOwenedCurrencyNames = cryptoData.reduce("", commaSeperatedCryptoNames)
-    view1TextLabel.text = allOwenedCurrencyNames
-    
+    view1TextLabel.text = ":: All Owened Currency :: \n \(allOwenedCurrencyNames)"
   }
   
   func setView2Data() {//every currency which increased from its previous value
     guard let cryptoData = cryptoData else { return }
     let increasedCurrencyNames = cryptoData.filter { $0.currentValue > $0.previousValue }.reduce("", commaSeperatedCryptoNames)
-    view2TextLabel.text = increasedCurrencyNames
+    view2TextLabel.text =  ":: Increased Currency :: \n \(increasedCurrencyNames)"
   }
   
   func setView3Data() {// every currency which decreased from its previous value
     guard let cryptoData = cryptoData else { return }
     let decreasedCurrencyNames = cryptoData.filter { $0.currentValue < $0.previousValue }.reduce("", commaSeperatedCryptoNames)
-    view3TextLabel.text = decreasedCurrencyNames
+    view3TextLabel.text = ":: Decreased Currency :: \n \(decreasedCurrencyNames)"
   }
   
+  func setFallingView(){
+    guard let cryptoData = cryptoData else { return }
+    let mostFalling = cryptoData.min { $0.difference < $1.difference }
+    mostFallingLabel.text = "\(mostFalling!.difference)"
+  }
+  
+  func setRisingView(){
+    guard let cryptoData = cryptoData else { return }
+    let mostRising = cryptoData.max { $0.difference < $1.difference }
+    mostRisingLabel.text = "\(mostRising!.difference)"
+  }
+  
+  
+  func setViewData(Label: UILabel) -> String {
+    var textLabel = ""
+    guard let cryptoData = cryptoData else { return ""}
+    textLabel = cryptoData.reduce("", commaSeperatedCryptoNames)
+    return textLabel
+  }
+  
+  //MARK:- IBAction Events
   @IBAction func switchPressed(_ sender: Any) {
     ThemeManager.shared.set(theme: themeSwitch.isOn ? DarkTheme() : LightTheme())
   }
 }
 
+//MARK:- Extension
 extension HomeViewController: Themeable {
 
   func registerForTheme() {
@@ -165,7 +160,7 @@ extension HomeViewController: Themeable {
     _ = views.map { $0?.backgroundColor = theme.widgetBackgroundColor }
     _ = views.map { $0?.layer.borderColor = theme.borderColor.cgColor }
     
-    let viewTextLabels = [view1TextLabel, view2TextLabel, view3TextLabel]
+    let viewTextLabels = [view1TextLabel, view2TextLabel, view3TextLabel, mostRisingLabel, mostFallingLabel, mostRisingHeading, mostFallingHeading ]
     _ = viewTextLabels.map { $0?.textColor = theme.textColor }
     headingLabel.textColor = theme.textColor
     

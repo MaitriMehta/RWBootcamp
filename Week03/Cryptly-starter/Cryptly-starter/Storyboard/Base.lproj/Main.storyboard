@@ -28,7 +28,7 @@
         <!--Home View Controller-->
         <scene sceneID="9KI-BV-L4a">
             <objects>
-                <viewController id="5r6-eT-R08" customClass="HomeViewController" customModule="Cryptly_starter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5r6-eT-R08" customClass="HomeViewController" customModule="Cryptly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mvF-6T-uLm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,7 +39,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oo-MW-3FZ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oo-MW-3FZ" customClass="CryptoView" customModule="Cryptly_end">
                                 <rect key="frame" x="20" y="188.33333333333334" width="374" height="120.00000000000003"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pP-O3-GIK">
@@ -58,7 +58,7 @@
                                     <constraint firstAttribute="trailing" secondItem="2pP-O3-GIK" secondAttribute="trailing" constant="20" id="sqv-6S-XbB"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DpI-h7-D97">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DpI-h7-D97" customClass="CryptoView" customModule="Cryptly_end">
                                 <rect key="frame" x="20" y="328.33333333333331" width="374" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPy-T8-YB9">
@@ -77,7 +77,7 @@
                                     <constraint firstItem="tPy-T8-YB9" firstAttribute="leading" secondItem="DpI-h7-D97" secondAttribute="leading" constant="20" id="mZE-Af-Pi5"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNM-6D-sSb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNM-6D-sSb" customClass="CryptoView" customModule="Cryptly_end">
                                 <rect key="frame" x="20" y="468.33333333333326" width="374" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCh-Bb-EWS">
@@ -99,18 +99,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aya-Rg-dtm">
                                 <rect key="frame" x="22" y="609" width="372" height="120"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mny-uG-d3z" userLabel="View4">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mny-uG-d3z" userLabel="View4" customClass="CryptoView" customModule="Cryptly_end">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Most Falling" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rC-1d-1X8">
-                                                <rect key="frame" x="44" y="0.0" width="92" height="57"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="57"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdD-JM-MlU">
-                                                <rect key="frame" x="69" y="65" width="42" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdD-JM-MlU">
+                                                <rect key="frame" x="8" y="79.666666666666629" width="164" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -120,23 +119,27 @@
                                         <constraints>
                                             <constraint firstItem="3rC-1d-1X8" firstAttribute="top" secondItem="Mny-uG-d3z" secondAttribute="top" constant="20" id="4HZ-Pb-aTI"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3rC-1d-1X8" secondAttribute="trailing" constant="20" symbolic="YES" id="OFL-d4-bAJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="BdD-JM-MlU" secondAttribute="bottom" constant="20" id="OdZ-jR-ykB"/>
                                             <constraint firstAttribute="height" constant="120" id="SPk-zP-5xf"/>
+                                            <constraint firstItem="BdD-JM-MlU" firstAttribute="centerX" secondItem="3rC-1d-1X8" secondAttribute="centerX" id="XQn-RW-QMP"/>
                                             <constraint firstItem="3rC-1d-1X8" firstAttribute="leading" secondItem="Mny-uG-d3z" secondAttribute="leading" constant="20" id="mWY-B6-m7u"/>
                                             <constraint firstAttribute="bottom" secondItem="3rC-1d-1X8" secondAttribute="bottom" constant="20" id="tXc-3H-7wY"/>
+                                            <constraint firstItem="BdD-JM-MlU" firstAttribute="trailing" secondItem="Mny-uG-d3z" secondAttribute="trailingMargin" id="yAZ-yN-rRk"/>
+                                            <constraint firstItem="3rC-1d-1X8" firstAttribute="top" secondItem="Mny-uG-d3z" secondAttribute="top" constant="20" id="z5z-80-kuJ"/>
+                                            <constraint firstItem="BdD-JM-MlU" firstAttribute="leading" secondItem="Mny-uG-d3z" secondAttribute="leadingMargin" id="zNJ-Jz-1H5"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7j-Oi-Ado" userLabel="View5">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7j-Oi-Ado" userLabel="View5" customClass="CryptoView" customModule="Cryptly_end">
                                         <rect key="frame" x="190" y="0.0" width="182" height="120"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Most Rising" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhS-uN-had">
-                                                <rect key="frame" x="20" y="8" width="142" height="46"/>
+                                                <rect key="frame" x="0.0" y="8" width="174" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGM-Wp-bOL">
-                                                <rect key="frame" x="59" y="62" width="42" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGM-Wp-bOL">
+                                                <rect key="frame" x="8" y="79.666666666666629" width="154" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -144,9 +147,12 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="JGM-Wp-bOL" firstAttribute="leading" secondItem="Y7j-Oi-Ado" secondAttribute="leadingMargin" id="71M-58-muJ"/>
                                             <constraint firstAttribute="height" constant="120" id="CvQ-GJ-gKV"/>
                                             <constraint firstAttribute="bottom" secondItem="YhS-uN-had" secondAttribute="bottom" constant="20" id="K0D-NE-ADH"/>
                                             <constraint firstItem="YhS-uN-had" firstAttribute="top" secondItem="Y7j-Oi-Ado" secondAttribute="top" constant="20" id="W8r-o6-DCo"/>
+                                            <constraint firstItem="JGM-Wp-bOL" firstAttribute="trailing" secondItem="YhS-uN-had" secondAttribute="trailing" id="Zzd-vg-rhv"/>
+                                            <constraint firstAttribute="bottom" secondItem="JGM-Wp-bOL" secondAttribute="bottom" constant="20" id="fjS-1c-d7K"/>
                                             <constraint firstItem="YhS-uN-had" firstAttribute="leading" secondItem="Y7j-Oi-Ado" secondAttribute="leading" constant="20" id="heZ-2B-eeo"/>
                                             <constraint firstAttribute="trailing" secondItem="YhS-uN-had" secondAttribute="trailing" constant="20" id="mcH-TI-Tvw"/>
                                         </constraints>
@@ -190,7 +196,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="headingLabel" destination="zrp-g0-HX2" id="CEx-vX-zmI"/>
+                        <outlet property="mostFallingHeading" destination="3rC-1d-1X8" id="Ra6-6V-fD2"/>
                         <outlet property="mostFallingLabel" destination="BdD-JM-MlU" id="fnr-Ac-ER8"/>
+                        <outlet property="mostRisingHeading" destination="YhS-uN-had" id="6cW-3v-hMV"/>
                         <outlet property="mostRisingLabel" destination="JGM-Wp-bOL" id="uNQ-BV-XVO"/>
                         <outlet property="themeSwitch" destination="kW6-Ms-UCP" id="Vpv-W6-XtS"/>
                         <outlet property="view1" destination="4oo-MW-3FZ" id="7mY-sa-8ZH"/>
