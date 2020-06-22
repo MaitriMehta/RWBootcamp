@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB0610A4249EB7D700AA1850 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0610A3249EB7D700AA1850 /* House.swift */; };
+		AB0610A924A02BDA00AA1850 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0610A824A02BDA00AA1850 /* Constants.swift */; };
 		C3017BC02498760A00B1E49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3017BBF2498760A00B1E49A /* AppDelegate.swift */; };
 		C3017BC22498760A00B1E49A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3017BC12498760A00B1E49A /* SceneDelegate.swift */; };
 		C3017BC42498760A00B1E49A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3017BC32498760A00B1E49A /* ViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB0610A3249EB7D700AA1850 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		AB0610A824A02BDA00AA1850 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3017BBC2498760A00B1E49A /* ComparisonShopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComparisonShopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3017BBF2498760A00B1E49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3017BC12498760A00B1E49A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB0610A2249EB7CB00AA1850 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB0610A3249EB7D700AA1850 /* House.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AB0610A524A0260000AA1850 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C3017BBF2498760A00B1E49A /* AppDelegate.swift */,
+				C3017BC12498760A00B1E49A /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		AB0610A624A0261700AA1850 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C3017BC52498760A00B1E49A /* Main.storyboard */,
+				C3017BCD2498760D00B1E49A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		AB0610A724A02B9A00AA1850 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3017BCB2498760D00B1E49A /* Assets.xcassets */,
+				C3017BC82498760A00B1E49A /* ComparisonShopper.xcdatamodeld */,
+				AB0610A824A02BDA00AA1850 /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C3017BB32498760A00B1E49A = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +141,12 @@
 		C3017BBE2498760A00B1E49A /* ComparisonShopper */ = {
 			isa = PBXGroup;
 			children = (
-				C3017BBF2498760A00B1E49A /* AppDelegate.swift */,
-				C3017BC12498760A00B1E49A /* SceneDelegate.swift */,
+				AB0610A724A02B9A00AA1850 /* Resources */,
+				AB0610A624A0261700AA1850 /* Storyboard */,
+				AB0610A524A0260000AA1850 /* AppDelegate */,
+				AB0610A2249EB7CB00AA1850 /* Model */,
 				C3017BC32498760A00B1E49A /* ViewController.swift */,
-				C3017BC52498760A00B1E49A /* Main.storyboard */,
-				C3017BCB2498760D00B1E49A /* Assets.xcassets */,
-				C3017BCD2498760D00B1E49A /* LaunchScreen.storyboard */,
 				C3017BD02498760D00B1E49A /* Info.plist */,
-				C3017BC82498760A00B1E49A /* ComparisonShopper.xcdatamodeld */,
 			);
 			path = ComparisonShopper;
 			sourceTree = "<group>";
@@ -265,7 +303,9 @@
 				C3017BC42498760A00B1E49A /* ViewController.swift in Sources */,
 				C3017BC02498760A00B1E49A /* AppDelegate.swift in Sources */,
 				C3017BCA2498760A00B1E49A /* ComparisonShopper.xcdatamodeld in Sources */,
+				AB0610A4249EB7D700AA1850 /* House.swift in Sources */,
 				C3017BC22498760A00B1E49A /* SceneDelegate.swift in Sources */,
+				AB0610A924A02BDA00AA1850 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

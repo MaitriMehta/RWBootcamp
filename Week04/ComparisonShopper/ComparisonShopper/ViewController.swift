@@ -24,20 +24,29 @@ class ViewController: UIViewController {
 
     var house1: House?
     var house2: House?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpLeftSideUI()
         setUpRightSideUI()
-
-        house1?.price = "$12,000"
-        house1?.bedrooms = "3 bedrooms"
+        self.house1 =  House(address: "d", price: "444", bedrooms: "4")
+        setUpLeftSideUI()
     }
 
     func setUpLeftSideUI() {
+      if house1 == nil {
+        titleLabelLeft.alpha = 0
+        imageViewLeft.alpha = 0
+        priceLabelLeft.alpha = 0
+        roomLabelLeft.alpha = 0
+      } else {
         titleLabelLeft.text = house1!.address!
         priceLabelLeft.text = house1!.price!
         roomLabelLeft.text = house1!.bedrooms!
+        titleLabelLeft.alpha = 1
+        imageViewLeft.alpha = 1
+        priceLabelLeft.alpha = 1
+        roomLabelLeft.alpha = 1
+        }
     }
 
     func setUpRightSideUI() {
@@ -50,6 +59,10 @@ class ViewController: UIViewController {
             titleLabelRight.text! = house2!.address!
             priceLabelRight.text! = house2!.price!
             roomLabelRight.text! = house2!.bedrooms!
+            titleLabelRight.alpha = 1
+            imageViewRight.alpha = 1
+            priceLabelRight.alpha = 1
+            roomLabelRight.alpha = 1
         }
     }
 
@@ -58,39 +71,30 @@ class ViewController: UIViewController {
     }
 
     func openAlertView() {
-        let alert = UIAlertController(title: "Alert Title", message: "Alert Message", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "New House", message: "Add Details", preferredStyle: UIAlertController.Style.alert)
 
         alert.addTextField { (textField) in
-            textField.placeholder = "address"
+            textField.placeholder = "Address"
         }
 
         alert.addTextField { (textField) in
-            textField.placeholder = "price"
+            textField.placeholder = "Price"
         }
 
         alert.addTextField { (textField) in
-            textField.placeholder = "bedrooms"
+            textField.placeholder = "Bedrooms"
         }
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
 
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (UIAlertAction) in
-            var house = House()
-            house.address = alert.textFields?[0].text
-            house.price = alert.textFields?[1].text
-            house.bedrooms = alert.textFields?[2].text
-            self.house2 = house
+            self.house2 = House(
+                address: (alert.textFields?[0].text)!,
+                price: alert.textFields?[1].text ?? "0",
+                bedrooms: alert.textFields?[2].text ?? "0 Bedrooms")
             self.setUpRightSideUI()
         }))
 
         self.present(alert, animated: true, completion: nil)
     }
-
 }
-
-struct House {
-    var address: String?
-    var price: String?
-    var bedrooms: String?
-}
-
