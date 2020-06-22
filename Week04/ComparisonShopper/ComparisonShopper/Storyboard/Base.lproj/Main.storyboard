@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <device id="retina6_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -23,13 +23,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isC-pG-JOl">
-                                <rect key="frame" x="83.5" y="334" width="48" height="24"/>
+                                <rect key="frame" x="83.666666666666671" y="334" width="48.000000000000014" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWY-yX-Vmp">
-                                <rect key="frame" x="83.5" y="374" width="48" height="24"/>
+                                <rect key="frame" x="83.666666666666671" y="374" width="48.000000000000014" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -48,18 +48,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="house" id="6Tl-ho-9j4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house" id="6Tl-ho-9j4">
                                 <rect key="frame" x="697" y="162" width="183" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="273-4y-mHA">
-                                <rect key="frame" x="764.5" y="374" width="48" height="24"/>
+                                <rect key="frame" x="764.66666666666663" y="374" width="48" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zs-8b-Ndd">
-                                <rect key="frame" x="764.5" y="334" width="48" height="24"/>
+                                <rect key="frame" x="764.66666666666663" y="334" width="48" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -87,6 +87,7 @@
                             <constraint firstItem="273-4y-mHA" firstAttribute="centerY" secondItem="eWY-yX-Vmp" secondAttribute="centerY" id="gMr-zO-HBd"/>
                             <constraint firstAttribute="trailing" secondItem="6Tl-ho-9j4" secondAttribute="trailing" constant="16" id="gYf-cK-a63"/>
                             <constraint firstItem="6Tl-ho-9j4" firstAttribute="centerY" secondItem="kFM-8L-Jys" secondAttribute="centerY" id="iKL-oU-up7"/>
+                            <constraint firstItem="8Zs-8b-Ndd" firstAttribute="top" secondItem="6Tl-ho-9j4" secondAttribute="bottom" constant="6" id="ipa-VO-3D1"/>
                             <constraint firstItem="8cF-bQ-XH9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="j0O-yD-wb9"/>
                             <constraint firstItem="kFM-8L-Jys" firstAttribute="height" secondItem="6Tl-ho-9j4" secondAttribute="height" id="nfo-c8-gF1"/>
                             <constraint firstItem="eWY-yX-Vmp" firstAttribute="centerX" secondItem="isC-pG-JOl" secondAttribute="centerX" id="r0I-VX-rPM"/>

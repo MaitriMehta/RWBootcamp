@@ -28,73 +28,100 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRightSideUI()
-        self.house1 =  House(address: "d", price: "444", bedrooms: "4")
+        self.house1 =  House(address: "Palo Alto", price: "2200", bedrooms: "1")
         setUpLeftSideUI()
     }
 
     func setUpLeftSideUI() {
       if house1 == nil {
-        titleLabelLeft.alpha = 0
-        imageViewLeft.alpha = 0
-        priceLabelLeft.alpha = 0
-        roomLabelLeft.alpha = 0
+       hideLeft()
       } else {
         titleLabelLeft.text = house1!.address!
         priceLabelLeft.text = house1!.price!
         roomLabelLeft.text = house1!.bedrooms!
-        titleLabelLeft.alpha = 1
-        imageViewLeft.alpha = 1
-        priceLabelLeft.alpha = 1
-        roomLabelLeft.alpha = 1
+        seekLeft()
         }
     }
 
     func setUpRightSideUI() {
         if house2 == nil {
-            titleLabelRight.alpha = 0
-            imageViewRight.alpha = 0
-            priceLabelRight.alpha = 0
-            roomLabelRight.alpha = 0
+           hideRight()
         } else {
             titleLabelRight.text! = house2!.address!
             priceLabelRight.text! = house2!.price!
             roomLabelRight.text! = house2!.bedrooms!
-            titleLabelRight.alpha = 1
-            imageViewRight.alpha = 1
-            priceLabelRight.alpha = 1
-            roomLabelRight.alpha = 1
+            hideNseekRight()
         }
     }
-
+    
+    func hideNseekRight(){
+        titleLabelRight.alpha = (titleLabelRight.alpha == 1 ) ?  0 : 1
+        imageViewRight.alpha = 1
+        priceLabelRight.alpha = 1
+        roomLabelRight.alpha = 1
+    }
+    
+    func hideRight(){
+      titleLabelRight.alpha = 0
+      imageViewRight.alpha = 0
+      priceLabelRight.alpha = 0
+      roomLabelRight.alpha = 0
+    }
+    
+    func seekLeft(){
+        titleLabelLeft.alpha = 1
+        imageViewLeft.alpha = 1
+        priceLabelLeft.alpha = 1
+        roomLabelLeft.alpha = 1
+    }
+    
+    func hideLeft(){
+      titleLabelLeft.alpha = 0
+      imageViewLeft.alpha = 0
+      priceLabelLeft.alpha = 0
+      roomLabelLeft.alpha = 0
+    }
+    
     @IBAction func didPressAddRightHouseButton(_ sender: Any) {
         openAlertView()
     }
 
     func openAlertView() {
-        let alert = UIAlertController(title: "New House", message: "Add Details", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: alertAddNewHouseTitle, message: alertAddNewHouseMessage, preferredStyle: UIAlertController.Style.alert)
 
         alert.addTextField { (textField) in
-            textField.placeholder = "Address"
+            textField.placeholder = address
         }
 
         alert.addTextField { (textField) in
-            textField.placeholder = "Price"
+            textField.placeholder = price
         }
 
         alert.addTextField { (textField) in
-            textField.placeholder = "Bedrooms"
+            textField.placeholder = bedrooms
+            textField.keyboardType = .numberPad
         }
 
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
+        alert.addAction(UIAlertAction(title: cancel, style: .cancel, handler:nil))
 
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: ok, style: .default, handler:{ (UIAlertAction) in
             self.house2 = House(
-                address: (alert.textFields?[0].text)!,
-                price: alert.textFields?[1].text ?? "0",
-                bedrooms: alert.textFields?[2].text ?? "0 Bedrooms")
+                address: alert.textFields?[0].text.noDataIfEmpty,
+                price: alert.textFields?[1].text.noDataIfEmpty,
+                bedrooms: alert.textFields?[2].text.noDataIfEmpty)
             self.setUpRightSideUI()
         }))
 
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+
+extension Optional where Wrapped == String {
+    var noDataIfEmpty: String? {
+        guard let strongSelf = self else {
+            return nil
+        }
+        return strongSelf.isEmpty ? noData : strongSelf
     }
 }
