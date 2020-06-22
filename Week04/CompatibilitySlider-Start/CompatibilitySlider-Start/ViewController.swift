@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var questionLabel: UILabel!
 
-    var compatibilityItems = ["Cats", "Dogs"] // Add more!
+    var compatibilityItems = ["Cats", "Dogs", ""] // Add more!
     var currentItemIndex = 0
 
     var person1 = Person(id: 1, items: [:])
