@@ -1,0 +1,28 @@
+
+
+/*3. Time to make this app functional.
+I wrote a function that will do the compatibility calculating for you, but it’s up to you to implement
+the following logic.
+● When the user opens the app, the top label should say “User 1, what do you think
+about...”
+● The label with stars next to it should have the name of the first item in the
+`compatibilityItems` array.
+● The user can move the slider and give that item a score between 1 and 5.
+● When the user presses the “next item” button, you need to save their score for that first
+item as a dictionary.
+○ Hint:
+let currentItem = compatibilityItems[currentItemIndex]
+currentPerson?.items.updateValue(slider.value, forKey: currentItem)
+● After you save that info, go on to the next item in the array for Person1. A good way to
+keep track of what item you’re on is to increase `currentItemIndex` after you save the
+info.
+● When you get to the last item in the array, change the currentUser to person2, change
+the top label to say “Person 2, how do you feel about...”, start the array over, and do the
+exact same thing as before.
+● When you have finished with person 2, calculate both users compatibility scores and
+show a UIAlert telling the users their score.
+● Reset the game to the beginning when the UIAlert comes up.
+● Make sure to test your code a few times before you submit it, and watch out for crashes.
+If you try to access `compatibilityItems[currentItemIndex]` but `currentItemIndex` is a
+higher index than the last item in the array, you’ll crash your app!
+ */

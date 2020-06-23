@@ -34,12 +34,12 @@ class ViewController: UIViewController {
 
     func setUpLeftSideUI() {
       if house1 == nil {
-       hideLeft()
+//       hideLeft()
       } else {
         titleLabelLeft.text = house1!.address!
         priceLabelLeft.text = house1!.price!
         roomLabelLeft.text = house1!.bedrooms!
-        seekLeft()
+//        seekLeft()
         }
     }
 
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     }
     
     func hideNseekRight(){
-        titleLabelRight.alpha = (titleLabelRight.alpha == 1 ) ?  0 : 1
+        titleLabelRight.alpha = 1
         imageViewRight.alpha = 1
         priceLabelRight.alpha = 1
         roomLabelRight.alpha = 1
@@ -67,21 +67,21 @@ class ViewController: UIViewController {
       priceLabelRight.alpha = 0
       roomLabelRight.alpha = 0
     }
-    
-    func seekLeft(){
-        titleLabelLeft.alpha = 1
-        imageViewLeft.alpha = 1
-        priceLabelLeft.alpha = 1
-        roomLabelLeft.alpha = 1
-    }
-    
-    func hideLeft(){
-      titleLabelLeft.alpha = 0
-      imageViewLeft.alpha = 0
-      priceLabelLeft.alpha = 0
-      roomLabelLeft.alpha = 0
-    }
-    
+//
+//    func seekLeft(){
+//        titleLabelLeft.alpha = 1
+//        imageViewLeft.alpha = 1
+//        priceLabelLeft.alpha = 1
+//        roomLabelLeft.alpha = 1
+//    }
+//
+//    func hideLeft(){
+//      titleLabelLeft.alpha = 0
+//      imageViewLeft.alpha = 0
+//      priceLabelLeft.alpha = 0
+//      roomLabelLeft.alpha = 0
+//    }
+//
     @IBAction func didPressAddRightHouseButton(_ sender: Any) {
         openAlertView()
     }

@@ -22,54 +22,60 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YEV-IK-HKY">
-                                <rect key="frame" x="129" y="104.33333333333333" width="156.33333333333337" height="29.999999999999986"/>
+                                <rect key="frame" x="135" y="104.33333333333333" width="144" height="29.999999999999986"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="xxM-eR-Pe8">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="fa3-JL-dQL"/>
                                             <constraint firstAttribute="width" constant="30" id="jv8-x0-UaN"/>
-                                            <constraint firstAttribute="width" secondItem="xxM-eR-Pe8" secondAttribute="height" multiplier="1:1" id="oue-Zr-8KA"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="ITEM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yar-uD-3oE">
-                                        <rect key="frame" x="50" y="0.0" width="56.333333333333343" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <rect key="frame" x="50" y="0.0" width="44" height="30"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Q30-xt-i6I">
-                                        <rect key="frame" x="126.33333333333334" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="114" y="0.0" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="367-8x-NXt"/>
-                                            <constraint firstAttribute="width" secondItem="Q30-xt-i6I" secondAttribute="height" multiplier="1:1" id="un3-1E-GGJ"/>
+                                            <constraint firstAttribute="height" constant="30" id="SoZ-ID-Noe"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="yar-uD-3oE" secondAttribute="bottom" id="GaU-Yf-qzB"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q30-xt-i6I" secondAttribute="bottom" id="cZh-6u-D9I"/>
                                     <constraint firstAttribute="height" constant="30" id="dnP-TA-GLd"/>
+                                    <constraint firstAttribute="bottom" secondItem="xxM-eR-Pe8" secondAttribute="bottom" id="qZA-uO-kU3"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IFu-9M-0dN">
                                 <rect key="frame" x="20" y="413" width="374" height="80"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wMO-8c-bLa">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wMO-8c-bLa">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terrible" translatesAutoresizingMaskIntoConstraints="NO" id="MHE-4j-X35">
-                                                <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="30"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terrible" translatesAutoresizingMaskIntoConstraints="NO" id="MHE-4j-X35">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bad" translatesAutoresizingMaskIntoConstraints="NO" id="Oso-n0-SLr">
-                                                <rect key="frame" x="74.666666666666671" y="0.0" width="75.000000000000014" height="30"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bad" translatesAutoresizingMaskIntoConstraints="NO" id="Oso-n0-SLr">
+                                                <rect key="frame" x="86" y="0.0" width="30" height="30"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meh" translatesAutoresizingMaskIntoConstraints="NO" id="y6k-Xb-g0a">
-                                                <rect key="frame" x="149.66666666666666" y="0.0" width="74.666666666666657" height="30"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meh" translatesAutoresizingMaskIntoConstraints="NO" id="y6k-Xb-g0a">
+                                                <rect key="frame" x="172" y="0.0" width="30" height="30"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good" translatesAutoresizingMaskIntoConstraints="NO" id="UDX-5m-69w">
-                                                <rect key="frame" x="224.33333333333337" y="0.0" width="75" height="30"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good" translatesAutoresizingMaskIntoConstraints="NO" id="UDX-5m-69w">
+                                                <rect key="frame" x="258" y="0.0" width="30" height="30"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="great" translatesAutoresizingMaskIntoConstraints="NO" id="5XL-nc-oMm">
-                                                <rect key="frame" x="299.33333333333331" y="0.0" width="74.666666666666686" height="30"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="great" translatesAutoresizingMaskIntoConstraints="NO" id="5XL-nc-oMm">
+                                                <rect key="frame" x="344" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="TDS-gY-pYf"/>
+                                                    <constraint firstAttribute="height" constant="30" id="bIM-47-eWO"/>
+                                                </constraints>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -82,8 +88,12 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1w-P6-8nd">
-                                <rect key="frame" x="174" y="802" width="66" height="30"/>
-                                <state key="normal" title="Next Item"/>
+                                <rect key="frame" x="166" y="797" width="82" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                <state key="normal" title="Next Breed">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="didPressNextItemButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MS9-8c-dV0"/>
                                 </connections>
@@ -93,8 +103,8 @@
                         <constraints>
                             <constraint firstItem="IFu-9M-0dN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7dt-Qo-Dfn"/>
                             <constraint firstItem="YEV-IK-HKY" firstAttribute="top" secondItem="vPk-A6-VfC" secondAttribute="bottom" constant="20" id="7y9-ZO-Fo8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="d1w-P6-8nd" secondAttribute="bottom" constant="30" id="8Cl-uI-q9j"/>
                             <constraint firstItem="YEV-IK-HKY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Hcx-PD-jJP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="d1w-P6-8nd" secondAttribute="bottom" constant="30" id="IGE-PW-SP1"/>
                             <constraint firstItem="IFu-9M-0dN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aPh-WX-Q9K"/>
                             <constraint firstItem="d1w-P6-8nd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bSV-IB-g3F"/>
                             <constraint firstItem="vPk-A6-VfC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fTL-pf-Tzs"/>
@@ -104,7 +114,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="ChangeUserBreedButton" destination="d1w-P6-8nd" id="XwB-ij-hUI"/>
                         <outlet property="compatibilityItemLabel" destination="yar-uD-3oE" id="4Pa-pD-xpU"/>
+                        <outlet property="imgView1" destination="MHE-4j-X35" id="xq2-mO-Zfa"/>
+                        <outlet property="imgView2" destination="Oso-n0-SLr" id="niI-zF-M0m"/>
+                        <outlet property="imgView3" destination="y6k-Xb-g0a" id="aV4-SZ-0kz"/>
+                        <outlet property="imgView4" destination="UDX-5m-69w" id="r3U-9n-Oro"/>
+                        <outlet property="imgView5" destination="5XL-nc-oMm" id="PaU-C6-2dv"/>
                         <outlet property="questionLabel" destination="vPk-A6-VfC" id="a1h-Ts-g2X"/>
                         <outlet property="slider" destination="Qva-iw-efA" id="BKW-Si-S2y"/>
                     </connections>
@@ -117,7 +133,7 @@
     <resources>
         <image name="bad" width="30" height="30"/>
         <image name="good" width="30" height="30"/>
-        <image name="great" width="30" height="30"/>
+        <image name="great" width="20" height="20"/>
         <image name="meh" width="30" height="30"/>
         <image name="star" width="1000" height="1000"/>
         <image name="terrible" width="30" height="30"/>
