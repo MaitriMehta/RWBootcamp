@@ -20,7 +20,6 @@
 		C3C9D395249B3453001F55A6 /* ImagePostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D394249B3453001F55A6 /* ImagePostModel.swift */; };
 		C3C9D397249B346E001F55A6 /* MediaPostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D396249B346E001F55A6 /* MediaPostProtocol.swift */; };
 		C3C9D39B249B3711001F55A6 /* MediaPostsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D39A249B3711001F55A6 /* MediaPostsHandler.swift */; };
-		C3C9D39D249B3C29001F55A6 /* MediaPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D39C249B3C29001F55A6 /* MediaPostViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +59,6 @@
 		C3C9D394249B3453001F55A6 /* ImagePostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostModel.swift; sourceTree = "<group>"; };
 		C3C9D396249B346E001F55A6 /* MediaPostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostProtocol.swift; sourceTree = "<group>"; };
 		C3C9D39A249B3711001F55A6 /* MediaPostsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostsHandler.swift; sourceTree = "<group>"; };
-		C3C9D39C249B3C29001F55A6 /* MediaPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +179,6 @@
 		C3C9D39E249B3C30001F55A6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C3C9D39C249B3C29001F55A6 /* MediaPostViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -322,7 +319,6 @@
 				C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */,
 				C3C9D397249B346E001F55A6 /* MediaPostProtocol.swift in Sources */,
 				C3C9D39B249B3711001F55A6 /* MediaPostsHandler.swift in Sources */,
-				C3C9D39D249B3C29001F55A6 /* MediaPostViewModel.swift in Sources */,
 				C3C9D368249B324B001F55A6 /* Birdie_Final.xcdatamodeld in Sources */,
 				C3C9D35E249B324B001F55A6 /* AppDelegate.swift in Sources */,
 				C3C9D360249B324B001F55A6 /* SceneDelegate.swift in Sources */,

@@ -55,6 +55,7 @@ class ViewController: UIViewController {
          currentPerson = person
          currentItemIndex = 0
          setupInitialUI()
+        setQuestionLabel()
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
@@ -135,15 +136,6 @@ class ViewController: UIViewController {
           }
         return rate
     }
-    
-    final class SnappingSlider: UISlider {
-        override var value: Float {
-            set { super.value = newValue }
-            get {
-                return round(super.value * 1.0) / 1.0
-            }
-        }
-    }
         
     func addGesture(imageView: UIImageView){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
@@ -153,7 +145,6 @@ class ViewController: UIViewController {
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         print(tappedImage.tag)
     }
