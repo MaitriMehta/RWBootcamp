@@ -10,12 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //MARK: - IBOutlets
     @IBOutlet weak var compatibilityItemLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var questionLabel: UILabel!
-
     @IBOutlet weak var ChangeUserBreedButton: UIButton!
-    var compatibilityItems = ["Bulldog", "Maltese", "Boxer", "Poodle"] // Add more!
+    
+    let compatibilityItems = ["Bulldog", "Maltese", "Boxer", "Poodle"] // Add more!
 
     var person1 = Person(id: 1, items: [:])
     var person2 = Person(id: 2, items: [:])
@@ -31,16 +32,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         currentPerson = person1
         setupInitialUI()
+        addGesture(imgView1)
+        addGesture(imgView2)
+        addGesture(imgView3)
+        addGesture(imgView4)
+        addGesture(imgView5)
     }
     
     func setupInitialUI(){
       //Documentation says User1 but used Person1 as per screenshot
       questionLabel.text = "\(person) \(currentPerson!.id) \(questionLableText2)"
       compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
+        
     }
     
     private func showResult() {
-//      ChangeUserBreedButton.titleLabel?.text = "Next User"
       let score = calculateCompatibility()
       let alert = UIAlertController(title: Results, message: "You two are \(score) compatible!", preferredStyle: .alert)
       let action = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
@@ -110,10 +116,8 @@ class ViewController: UIViewController {
             let difference = abs(person1Rating - person2Rating)/5.0
             percentagesForAllItems.append(Double(difference))
         }
-//        print(percentagesForAllItems)
         let sumOfAllPercentages = percentagesForAllItems.reduce(0, +)
         let matchPercentage = sumOfAllPercentages/Double(compatibilityItems.count)
-//        print(matchPercentage, "%")
         let matchString = 100 - (matchPercentage * 100).rounded()
         return "\(matchString)%"
     }
@@ -137,16 +141,17 @@ class ViewController: UIViewController {
         return rate
     }
         
-    func addGesture(imageView: UIImageView){
+    func addGesture(_ imageView: UIImageView){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
     }
-    
+
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         let tappedImage = tapGestureRecognizer.view as! UIImageView
-        print(tappedImage.tag)
+        print("\(person) \(currentPerson!.id) :: \(compatibilityItems[currentItemIndex]) -> \(rate(sliderValue: Int(tappedImage.tag))) ")
+            slider.setValue(Float(Int(tappedImage.tag)), animated: false)
     }
     
     func setQuestionLabel(){

@@ -11,10 +11,3 @@ let person = "Person"
 let questionLableText2 = ", how do you feel about..."
 let Results = "Results"
 let OK = "OK" 
-enum Tag: Int {
-    case terrible
-    case bad
-    case meh
-    case good
-    case great
-}

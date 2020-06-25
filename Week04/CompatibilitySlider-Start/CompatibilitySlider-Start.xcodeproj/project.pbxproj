@@ -109,11 +109,11 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		AB0610AF24A149D400AA1850 /* View */ = {
+		AB0610AF24A149D400AA1850 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = View;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AB0610B024A149DF00AA1850 /* Storyboard */ = {
@@ -160,7 +160,7 @@
 			children = (
 				AB0610B124A149F900AA1850 /* Resources */,
 				AB0610B024A149DF00AA1850 /* Storyboard */,
-				AB0610AF24A149D400AA1850 /* View */,
+				AB0610AF24A149D400AA1850 /* ViewModel */,
 				AB0610AE24A149C500AA1850 /* Data */,
 				AB0610AD24A1496F00AA1850 /* Controller */,
 				AB0610AC24A1494500AA1850 /* AppDelegate */,
