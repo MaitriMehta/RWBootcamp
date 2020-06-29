@@ -119,11 +119,11 @@
 			path = extension;
 			sourceTree = "<group>";
 		};
-		ABD6AF7B24A87D27006C9852 /* New Group1 */ = {
+		ABD6AF7B24A87D27006C9852 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group1";
+			path = Resourses;
 			sourceTree = "<group>";
 		};
 		C3C9D351249B324B001F55A6 = {
@@ -149,7 +149,7 @@
 		C3C9D35C249B324B001F55A6 /* Birdie-Final */ = {
 			isa = PBXGroup;
 			children = (
-				ABD6AF7B24A87D27006C9852 /* New Group1 */,
+				ABD6AF7B24A87D27006C9852 /* Resourses */,
 				ABD6AF7824A877B3006C9852 /* extension */,
 				C3C9D390249B325C001F55A6 /* AppDelegate */,
 				C3C9D399249B3484001F55A6 /* Controller */,

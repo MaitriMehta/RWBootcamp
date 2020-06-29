@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    // MARK:IBOutlet
     @IBOutlet weak var tableview: UITableView!
     var selectedImage: UIImage?
     
@@ -20,7 +20,6 @@ class ViewController: UIViewController {
 
     func setUpTableView() {
         tableview.dataSource = self
-//        tableview.delegate = self
         tableview.register(UINib(nibName: "TextPostTableViewCell", bundle: nil), forCellReuseIdentifier: "textCell")
         tableview.register(UINib(nibName: "ImagePostTableViewCell", bundle: nil), forCellReuseIdentifier: "imageCell")
         MediaPostsHandler.shared.getPosts()
@@ -84,14 +83,6 @@ extension ViewController: UITableViewDataSource{
         MediaPostsHandler.shared.mediaPosts.count
     }
 }
-
-// MARK: UITableViewDelegate
-extension ViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 230
-    }
-}
-
 
 // MARK: UITableViewDelegate
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
