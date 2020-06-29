@@ -20,7 +20,7 @@ class ViewController: UIViewController {
 
     func setUpTableView() {
         tableview.dataSource = self
-        tableview.delegate = self
+//        tableview.delegate = self
         tableview.register(UINib(nibName: "TextPostTableViewCell", bundle: nil), forCellReuseIdentifier: "textCell")
         tableview.register(UINib(nibName: "ImagePostTableViewCell", bundle: nil), forCellReuseIdentifier: "imageCell")
         MediaPostsHandler.shared.getPosts()
@@ -31,25 +31,17 @@ class ViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction func didPressCreateTextPostButton(_ sender: Any) {
-        createPost(isImagePost: false)
+        showAlert()
     }
 
     @IBAction func didPressCreateImagePostButton(_ sender: Any) {
-        createPost(isImagePost: true)
-    }
-    
-    func createPost(isImagePost: Bool){
-        if isImagePost {
-            let vc = UIImagePickerController()
-            vc.delegate = self
-            present(vc, animated:true)
-        }else{
-            showAlert()
-        }
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        present(imagePickerController, animated:true)
     }
     
     func showAlert(){
-        let alert = UIAlertController(title: "Create Post", message: "What's up ?:]", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Create Post", message: "What's up ?:)", preferredStyle: UIAlertController.Style.alert)
         
         alert.addTextField{ (textField) in
             textField.placeholder = "Username"

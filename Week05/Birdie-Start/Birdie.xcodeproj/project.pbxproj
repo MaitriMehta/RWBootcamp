@@ -13,6 +13,7 @@
 		ABD6AF7524A73119006C9852 /* ImagePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD6AF7324A73119006C9852 /* ImagePostTableViewCell.xib */; };
 		ABD6AF7724A73362006C9852 /* MediaPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6AF7624A73362006C9852 /* MediaPostViewModel.swift */; };
 		ABD6AF7A24A877DC006C9852 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6AF7924A877DC006C9852 /* Date+Extension.swift */; };
+		ABD6AF7D24A89284006C9852 /* References in Resources */ = {isa = PBXBuildFile; fileRef = ABD6AF7C24A89284006C9852 /* References */; };
 		C3C9D35E249B324B001F55A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35D249B324B001F55A6 /* AppDelegate.swift */; };
 		C3C9D360249B324B001F55A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */; };
 		C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D361249B324B001F55A6 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		ABD6AF7324A73119006C9852 /* ImagePostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePostTableViewCell.xib; sourceTree = "<group>"; };
 		ABD6AF7624A73362006C9852 /* MediaPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostViewModel.swift; sourceTree = "<group>"; };
 		ABD6AF7924A877DC006C9852 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		ABD6AF7C24A89284006C9852 /* References */ = {isa = PBXFileReference; lastKnownFileType = text; path = References; sourceTree = "<group>"; };
 		C3C9D35A249B324B001F55A6 /* Birdie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C9D35D249B324B001F55A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				ABD6AF6D24A73076006C9852 /* CustomCells */,
 				C3C9D361249B324B001F55A6 /* ViewController.swift */,
+				ABD6AF7C24A89284006C9852 /* References */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			files = (
 				ABD6AF7124A730FE006C9852 /* TextPostTableViewCell.xib in Resources */,
 				C3C9D36D249B324C001F55A6 /* LaunchScreen.storyboard in Resources */,
+				ABD6AF7D24A89284006C9852 /* References in Resources */,
 				ABD6AF7524A73119006C9852 /* ImagePostTableViewCell.xib in Resources */,
 				C3C9D36A249B324C001F55A6 /* Assets.xcassets in Resources */,
 				C3C9D365249B324B001F55A6 /* Main.storyboard in Resources */,
