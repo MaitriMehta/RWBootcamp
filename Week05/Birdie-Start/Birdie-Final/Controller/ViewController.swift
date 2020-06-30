@@ -100,7 +100,4 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         showAlert()
     }
 }
-/* Trying to debug the constarints
-https://stackoverflow.com/questions/11664115/unable-to-simultaneously-satisfy-constraints-will-attempt-to-recover-by-breakin
- 
- */
+
