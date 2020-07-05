@@ -18,6 +18,9 @@
 		A125200A24AAAB71008F7E2E /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = A125200824AAAB71008F7E2E /* pokemon.csv */; };
 		A125200B24AAAB71008F7E2E /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = A125200924AAAB71008F7E2E /* csv.swift */; };
 		A125200D24AAABA0008F7E2E /* PokemonGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A125200C24AAABA0008F7E2E /* PokemonGenerator.swift */; };
+		AB31629F24B0704100A7AF18 /* CompactPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB31629E24B0704100A7AF18 /* CompactPokemonViewController.swift */; };
+		AB3162A224B12F0000A7AF18 /* CompactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3162A024B12F0000A7AF18 /* CompactCollectionViewCell.swift */; };
+		AB3162A324B12F0000A7AF18 /* CompactCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB3162A124B12F0000A7AF18 /* CompactCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		A125200824AAAB71008F7E2E /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		A125200924AAAB71008F7E2E /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 		A125200C24AAABA0008F7E2E /* PokemonGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonGenerator.swift; sourceTree = "<group>"; };
+		AB31629E24B0704100A7AF18 /* CompactPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactPokemonViewController.swift; sourceTree = "<group>"; };
+		AB3162A024B12F0000A7AF18 /* CompactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactCollectionViewCell.swift; sourceTree = "<group>"; };
+		AB3162A124B12F0000A7AF18 /* CompactCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompactCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,8 @@
 		185CB1FA23C78CE6009F7571 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				AB31629D24B0701D00A7AF18 /* Controller */,
+				AB31629724B0631B00A7AF18 /* View */,
 				185CB1FB23C78CE6009F7571 /* AppDelegate.swift */,
 				185CB1FD23C78CE6009F7571 /* SceneDelegate.swift */,
 				185CB20123C78CE6009F7571 /* Main.storyboard */,
@@ -83,13 +91,46 @@
 		A125200724AAAB64008F7E2E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A11D349924AABED7002BDD2B /* Pokemon Hollow.ttf */,
-				A11D349824AABED7002BDD2B /* Pokemon Solid.ttf */,
+				AB3162A424B1C30500A7AF18 /* Font */,
 				A125200924AAAB71008F7E2E /* csv.swift */,
 				A125200824AAAB71008F7E2E /* pokemon.csv */,
 				A125200C24AAABA0008F7E2E /* PokemonGenerator.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AB31629724B0631B00A7AF18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB31629824B0632B00A7AF18 /* CustomCells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AB31629824B0632B00A7AF18 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				AB3162A024B12F0000A7AF18 /* CompactCollectionViewCell.swift */,
+				AB3162A124B12F0000A7AF18 /* CompactCollectionViewCell.xib */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		AB31629D24B0701D00A7AF18 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AB31629E24B0704100A7AF18 /* CompactPokemonViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AB3162A424B1C30500A7AF18 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				A11D349924AABED7002BDD2B /* Pokemon Hollow.ttf */,
+				A11D349824AABED7002BDD2B /* Pokemon Solid.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11D349A24AABED7002BDD2B /* Pokemon Solid.ttf in Resources */,
+				AB3162A324B12F0000A7AF18 /* CompactCollectionViewCell.xib in Resources */,
 				180DC61523C78D9800486B1A /* LaunchScreen.storyboard in Resources */,
 				A11D349B24AABED7002BDD2B /* Pokemon Hollow.ttf in Resources */,
 				185CB20523C78CE8009F7571 /* Assets.xcassets in Resources */,
@@ -189,6 +231,8 @@
 			files = (
 				A10D04F924ABC8DB00DE5D14 /* Pokemon.swift in Sources */,
 				A125200B24AAAB71008F7E2E /* csv.swift in Sources */,
+				AB31629F24B0704100A7AF18 /* CompactPokemonViewController.swift in Sources */,
+				AB3162A224B12F0000A7AF18 /* CompactCollectionViewCell.swift in Sources */,
 				A125200D24AAABA0008F7E2E /* PokemonGenerator.swift in Sources */,
 				185CB1FC23C78CE6009F7571 /* AppDelegate.swift in Sources */,
 				185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */,
@@ -328,12 +372,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Pokedex-starter/Info.plist";
+				INFOPLIST_FILE = Pokedex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.Pokedex-starter";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.Pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -345,12 +389,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Pokedex-starter/Info.plist";
+				INFOPLIST_FILE = Pokedex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.Pokedex-starter";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.Pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

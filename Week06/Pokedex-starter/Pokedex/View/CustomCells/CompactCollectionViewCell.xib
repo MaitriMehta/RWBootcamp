@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="J3F-p6-cct" userLabel="CompactCollectionViewCell" customClass="CompactCollectionViewCell" customModule="PokeDex" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zt-6M-yYs">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="LcU-Yq-fXp">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="75"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gl-b8-oks">
+                                <rect key="frame" x="0.0" y="75" width="100" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRh-4q-y0V">
+                                        <rect key="frame" x="4" y="4" width="92" height="17"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="rw-light"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.9843137264251709" green="0.44705882668495178" blue="0.41960784792900085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="kRh-4q-y0V" firstAttribute="top" secondItem="7gl-b8-oks" secondAttribute="top" constant="4" id="7QM-2m-0mH"/>
+                                    <constraint firstItem="kRh-4q-y0V" firstAttribute="leading" secondItem="7gl-b8-oks" secondAttribute="leading" constant="4" id="GTZ-3P-Nq3"/>
+                                    <constraint firstAttribute="trailing" secondItem="kRh-4q-y0V" secondAttribute="trailing" constant="4" id="LhG-nJ-IyX"/>
+                                    <constraint firstAttribute="bottom" secondItem="kRh-4q-y0V" secondAttribute="bottom" constant="4" id="VHp-TL-NwG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7gl-b8-oks" secondAttribute="trailing" id="4bA-1e-6TX"/>
+                            <constraint firstAttribute="trailing" secondItem="LcU-Yq-fXp" secondAttribute="trailing" id="OV4-Zy-hw2"/>
+                            <constraint firstItem="7gl-b8-oks" firstAttribute="leading" secondItem="7Zt-6M-yYs" secondAttribute="leading" id="fWL-ZX-hJx"/>
+                            <constraint firstItem="7gl-b8-oks" firstAttribute="top" secondItem="LcU-Yq-fXp" secondAttribute="bottom" id="gSN-vS-ucN"/>
+                            <constraint firstItem="LcU-Yq-fXp" firstAttribute="leading" secondItem="7Zt-6M-yYs" secondAttribute="leading" id="lqt-2J-eEf"/>
+                            <constraint firstItem="LcU-Yq-fXp" firstAttribute="top" secondItem="7Zt-6M-yYs" secondAttribute="top" id="q8n-XH-0Sd"/>
+                            <constraint firstAttribute="bottom" secondItem="7gl-b8-oks" secondAttribute="bottom" id="qJE-fN-u5E"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="7Zt-6M-yYs" firstAttribute="top" secondItem="J3F-p6-cct" secondAttribute="top" id="N0U-Yd-3QR"/>
+                <constraint firstItem="7Zt-6M-yYs" firstAttribute="leading" secondItem="J3F-p6-cct" secondAttribute="leading" id="Pl5-ff-qyD"/>
+                <constraint firstAttribute="trailing" secondItem="7Zt-6M-yYs" secondAttribute="trailing" id="T8j-3p-rD7"/>
+                <constraint firstAttribute="bottom" secondItem="7Zt-6M-yYs" secondAttribute="bottom" id="fUg-iu-D5b"/>
+            </constraints>
+            <connections>
+                <outlet property="pokemonImageView" destination="LcU-Yq-fXp" id="yN6-2F-4Db"/>
+                <outlet property="pokemonNameLabel" destination="kRh-4q-y0V" id="Nx3-1g-0dv"/>
+                <outlet property="view" destination="7Zt-6M-yYs" id="MTI-Di-395"/>
+            </connections>
+            <point key="canvasLocation" x="48" y="29"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="rw-light">
+            <color red="0.94900000095367432" green="0.9649999737739563" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

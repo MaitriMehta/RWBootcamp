@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -62,16 +63,16 @@
         <!--Compact View-->
         <scene sceneID="jfm-d7-A99">
             <objects>
-                <viewController id="aiT-yU-3Sz" sceneMemberID="viewController">
+                <viewController id="aiT-yU-3Sz" customClass="CompactPokemonViewController" customModule="PokeDex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zbv-Ge-Jnv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRK-MR-EZD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmX-yB-Csc">
-                                        <rect key="frame" x="147" y="14" width="81" height="28"/>
+                                        <rect key="frame" x="147" y="10.5" width="81" height="28"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -80,33 +81,60 @@
                                 <color key="backgroundColor" red="1" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="mmX-yB-Csc" firstAttribute="centerY" secondItem="uRK-MR-EZD" secondAttribute="centerY" id="70z-94-SCc"/>
-                                    <constraint firstAttribute="height" constant="56" id="A5z-XU-a1a"/>
                                     <constraint firstItem="mmX-yB-Csc" firstAttribute="centerX" secondItem="uRK-MR-EZD" secondAttribute="centerX" id="BiU-IX-1PQ"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ezc-7R-jLs">
-                                <rect key="frame" x="0.0" y="56" width="375" height="562"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B9z-Jk-Nhh">
+                                <rect key="frame" x="0.0" y="49" width="375" height="569"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="Ecy-MP-qNZ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokemonCVCell" id="vS8-if-qck" userLabel="PokemonCompactCell" customClass="CompactCollectionViewCell" customModule="PokeDex" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="96M-sN-13w">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="juZ-AC-nhh" firstAttribute="trailing" secondItem="ezc-7R-jLs" secondAttribute="trailing" id="3fY-um-jw7"/>
-                            <constraint firstItem="ezc-7R-jLs" firstAttribute="leading" secondItem="juZ-AC-nhh" secondAttribute="leading" id="6ZZ-KK-9JX"/>
-                            <constraint firstItem="juZ-AC-nhh" firstAttribute="trailing" secondItem="uRK-MR-EZD" secondAttribute="trailing" id="6p2-hk-mrB"/>
-                            <constraint firstItem="uRK-MR-EZD" firstAttribute="leading" secondItem="juZ-AC-nhh" secondAttribute="leading" id="ETr-KJ-RPR"/>
-                            <constraint firstItem="juZ-AC-nhh" firstAttribute="bottom" secondItem="ezc-7R-jLs" secondAttribute="bottom" id="Hmz-Oo-7tb"/>
-                            <constraint firstItem="uRK-MR-EZD" firstAttribute="top" secondItem="juZ-AC-nhh" secondAttribute="top" id="brE-6N-XyE"/>
-                            <constraint firstItem="ezc-7R-jLs" firstAttribute="top" secondItem="uRK-MR-EZD" secondAttribute="bottom" id="kEK-Ew-Wqq"/>
+                            <constraint firstItem="uRK-MR-EZD" firstAttribute="leading" secondItem="B9z-Jk-Nhh" secondAttribute="leading" id="JA1-jO-yAQ"/>
+                            <constraint firstItem="B9z-Jk-Nhh" firstAttribute="centerX" secondItem="Zbv-Ge-Jnv" secondAttribute="centerX" id="PIe-d1-uId"/>
+                            <constraint firstItem="uRK-MR-EZD" firstAttribute="top" secondItem="juZ-AC-nhh" secondAttribute="top" id="VDc-GA-4PD"/>
+                            <constraint firstItem="B9z-Jk-Nhh" firstAttribute="bottom" secondItem="juZ-AC-nhh" secondAttribute="bottom" id="Xag-lg-GvW"/>
+                            <constraint firstItem="B9z-Jk-Nhh" firstAttribute="trailing" secondItem="juZ-AC-nhh" secondAttribute="trailing" id="Yqo-Uv-9Hm"/>
+                            <constraint firstItem="uRK-MR-EZD" firstAttribute="leading" secondItem="ezc-7R-jLs" secondAttribute="leading" id="adv-0u-Z6V"/>
+                            <constraint firstItem="B9z-Jk-Nhh" firstAttribute="leading" secondItem="juZ-AC-nhh" secondAttribute="leading" id="bSV-MK-L2H"/>
+                            <constraint firstItem="uRK-MR-EZD" firstAttribute="top" secondItem="ezc-7R-jLs" secondAttribute="top" id="cbd-09-IPO"/>
+                            <constraint firstItem="uRK-MR-EZD" firstAttribute="trailing" secondItem="ezc-7R-jLs" secondAttribute="trailing" id="gCV-U0-GFv"/>
+                            <constraint firstItem="B9z-Jk-Nhh" firstAttribute="centerY" secondItem="Zbv-Ge-Jnv" secondAttribute="centerY" id="iYg-bg-Mbp"/>
+                            <constraint firstItem="B9z-Jk-Nhh" firstAttribute="top" secondItem="uRK-MR-EZD" secondAttribute="bottom" id="w24-vH-IlX"/>
+                            <constraint firstItem="uRK-MR-EZD" firstAttribute="trailing" secondItem="B9z-Jk-Nhh" secondAttribute="trailing" id="yle-He-fR0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="juZ-AC-nhh"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Compact View" image="unselected_down" selectedImage="selected_down" id="Uyi-xz-Er8">
                         <color key="badgeColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="pokemonCollectionView" destination="B9z-Jk-Nhh" id="Pdb-2l-iVJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbO-wi-aa4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="-470.01499250374815"/>
+            <point key="canvasLocation" x="914" y="-662"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="T0I-4W-Mon">

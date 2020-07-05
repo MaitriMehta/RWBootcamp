@@ -30,33 +30,29 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-class PokemonGenerator {
+class CompactCollectionViewCell: UICollectionViewCell {
+  static let reuseIdentifier = String(describing: CompactCollectionViewCell.self)
   
-  public static let shared = PokemonGenerator()
+  // MARK: - IBOutlets
+  @IBOutlet weak private var view: UIView!
+  @IBOutlet weak private var pokemonImageView: UIImageView!
+  @IBOutlet weak private var pokemonNameLabel: UILabel!
+    
+  func populateCellData(with pokemon: Pokemon) {
+    pokemonImageView.image = UIImage(named: "\(pokemon.pokemonId)")
+    pokemonNameLabel.text = pokemon.pokemonName
+  }
   
-  private init () { }
   
-  func generatePokemons() -> [Pokemon] {
-    var pokemons: [Pokemon] = []
-    let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")
-    do {
-      let csv = try CSV(contentsOfURL: path ?? "")
-      let rows = csv.rows
-      for row in rows {
-        let pokeID = Int(row["id"] ?? "") ?? 0
-        let name = row["identifier"] ?? ""
-        let weight = Int(row["weight"] ?? "") ?? 0
-        let height = Int(row["height"] ?? "") ?? 0
-        let baseExp = Int(row["base_experience"] ?? "") ?? 0
-        let pokemon = Pokemon(pokemonId: pokeID, pokemonName: name.capitalized, baseExperience: baseExp, weight: height, height: weight)
-        pokemons.append(pokemon)
-      }
-      return pokemons
-    } catch let error {
-      print("\(error.localizedDescription)")
-    }
-    return pokemons
+  // MARK: setupView
+  override func awakeFromNib() {
+   super.awakeFromNib()
+    setupView()
+  }
+    
+  private func setupView() {
+    view.layer.cornerRadius = 5
   }
 }
