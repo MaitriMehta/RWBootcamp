@@ -33,8 +33,15 @@
 import UIKit
 
 // MARK: - Constants
+
+enum UIUserInterfaceIdiom : Int {
+    case unspecified
+    case phone // iPhone
+    case pad   // iPad
+}
+
 let margin: CGFloat = 10
-let cellsPerRow = 3
+var cellsPerRow = 3
 
 class CompactPokemonViewController: UIViewController {
   
@@ -50,6 +57,7 @@ class CompactPokemonViewController: UIViewController {
   
   // MARK: - Setup CollectionView
   private func setupCollectionView() {
+    //cellsPerRow = deviceAndOrientationCheck()
     guard let collectionView = pokemonCollectionView, let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
     flowLayout.minimumInteritemSpacing = margin
     flowLayout.minimumLineSpacing = margin
@@ -86,16 +94,42 @@ extension CompactPokemonViewController: UICollectionViewDataSource, UICollection
   }
     
   override func viewWillLayoutSubviews() {
+//    cellsPerRow = deviceAndOrientationCheck()
     guard let collectionView = pokemonCollectionView, let flowLayout = pokemonCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
     let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + flowLayout.minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
     let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-      flowLayout.itemSize =  CGSize(width: itemWidth, height: itemWidth)
+    flowLayout.itemSize =  CGSize(width: itemWidth, height: itemWidth)
+   
   }
-  
+
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         pokemonCollectionView?.collectionViewLayout.invalidateLayout()
+        
         super.viewWillTransition(to: size, with: coordinator)
      }
+  
+//    func deviceAndOrientationCheck() -> Int{
+//      switch UIDevice.current.userInterfaceIdiom {
+//         case .phone:
+//           cellsPerRow = 3
+//         case .pad:
+//           cellsPerRow = 3
+//         case .unspecified:
+//           cellsPerRow = 3
+//         case .tv:
+//           cellsPerRow = 3
+//         case .carPlay:
+//           cellsPerRow = 3
+//         @unknown default:
+//           cellsPerRow = 3
+//       }
+//      if UIDevice.current.orientation.isLandscape {
+//       cellsPerRow = 3
+//      } else {
+//       cellsPerRow = 3
+//      }
+//      return cellsPerRow
+//    }
   
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
       UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -107,6 +141,7 @@ extension CompactPokemonViewController: UICollectionViewDataSource, UICollection
       return 10.0
     }
 }
+
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CompactPokemonViewController: UICollectionViewDelegateFlowLayout {

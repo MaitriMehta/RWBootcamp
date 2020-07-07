@@ -16,7 +16,7 @@
         <!--Large View-->
         <scene sceneID="FtT-Ec-vGh">
             <objects>
-                <viewController id="fFy-LO-UBa" sceneMemberID="viewController">
+                <viewController id="fFy-LO-UBa" customClass="LargeViewController" customModule="PokeDex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hu4-Pu-s6W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,26 +39,74 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="R2U-eA-Prs">
-                                <rect key="frame" x="0.0" y="56" width="375" height="562"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="1200"/>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="n2i-cM-MNK">
+                                <rect key="frame" x="0.0" y="52" width="375" height="562"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="X2l-0A-EBd">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LargePokemonCVCell" id="bG4-CC-wJf" userLabel="LargeCollectionViewCell" customClass="LargeCollectionViewCell" customModule="PokeDex" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hj6-Nl-O00">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="R2U-eA-Prs" firstAttribute="leading" secondItem="xmN-FV-oZb" secondAttribute="leading" id="0Vs-VC-Kmr"/>
-                            <constraint firstItem="xmN-FV-oZb" firstAttribute="bottom" secondItem="R2U-eA-Prs" secondAttribute="bottom" id="3Fb-Qh-ZSo"/>
-                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="trailing" secondItem="xmN-FV-oZb" secondAttribute="trailing" id="4wY-1N-h20"/>
-                            <constraint firstItem="R2U-eA-Prs" firstAttribute="top" secondItem="nVx-bH-q6Q" secondAttribute="bottom" id="IEk-Kd-OuJ"/>
-                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="top" secondItem="xmN-FV-oZb" secondAttribute="top" id="eih-Xy-7Oc"/>
-                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="leading" secondItem="xmN-FV-oZb" secondAttribute="leading" id="j2a-3d-n7W"/>
-                            <constraint firstItem="xmN-FV-oZb" firstAttribute="trailing" secondItem="R2U-eA-Prs" secondAttribute="trailing" id="yHR-8A-92c"/>
+                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="trailing" secondItem="n2i-cM-MNK" secondAttribute="trailing" id="GvP-N9-gST"/>
+                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="top" secondItem="xmN-FV-oZb" secondAttribute="top" id="NYL-ca-v3p"/>
+                            <constraint firstItem="R2U-eA-Prs" firstAttribute="top" secondItem="nVx-bH-q6Q" secondAttribute="bottom" id="T8b-PF-jb8"/>
+                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="leading" secondItem="n2i-cM-MNK" secondAttribute="leading" id="ofH-kh-Uiu"/>
+                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="leading" secondItem="R2U-eA-Prs" secondAttribute="leading" id="tCK-LZ-W0b"/>
+                            <constraint firstItem="nVx-bH-q6Q" firstAttribute="trailing" secondItem="R2U-eA-Prs" secondAttribute="trailing" id="zuR-ek-XXm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xmN-FV-oZb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Large View" image="unselected_up" selectedImage="selected_up" id="vB4-BO-Kkb"/>
+                    <connections>
+                        <outlet property="largePokemonCollectionView" destination="n2i-cM-MNK" id="gz7-XV-xgT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWO-Ic-qxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913" y="96"/>
+            <point key="canvasLocation" x="913" y="287"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kdl-7E-5yG">
+            <objects>
+                <viewController id="1Dz-zd-Tnw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eM1-dQ-kWy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail Scene" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QT-Sd-PNi">
+                                <rect key="frame" x="139" y="323" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="iAZ-tb-cWW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CKV-P2-Jd0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qXg-4E-eNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1858" y="-663"/>
         </scene>
         <!--Compact View-->
         <scene sceneID="jfm-d7-A99">
@@ -72,7 +120,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0c-m5-QxY">
-                                        <rect key="frame" x="145" y="16.5" width="85.5" height="23.5"/>
+                                        <rect key="frame" x="147" y="14" width="81" height="28"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -98,13 +146,16 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokemonCVCell" id="gaC-uV-GVM">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokemonCVCell" id="gaC-uV-GVM" userLabel="CompactCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HtK-to-ON7">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <segue destination="1Dz-zd-Tnw" kind="show" id="P9M-4h-hlN"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

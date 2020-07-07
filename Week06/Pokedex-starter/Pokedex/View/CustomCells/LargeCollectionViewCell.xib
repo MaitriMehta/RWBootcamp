@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_2" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="LargeCollectionViewCell" id="7sm-0C-hRC" userLabel="LargeCollectionViewCell" customClass="LargeCollectionViewCell" customModule="PokeDex" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="273" height="492"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0Re-iu-MJ4">
+                <rect key="frame" x="0.0" y="0.0" width="273" height="492"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="EfZ-d6-wbk">
+                        <rect key="frame" x="0.0" y="0.0" width="273" height="492"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10" translatesAutoresizingMaskIntoConstraints="NO" id="vED-3U-Ah0">
+                                <rect key="frame" x="0.0" y="0.0" width="273" height="147.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q6S-Vb-TD0" userLabel="Labels">
+                                <rect key="frame" x="0.0" y="147.5" width="273" height="344.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="252" verticalCompressionResistancePriority="250" text="PokemonName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dOX-49-eee">
+                                        <rect key="frame" x="0.0" y="8" width="273" height="59"/>
+                                        <color key="backgroundColor" red="0.9843137264251709" green="0.44705882668495178" blue="0.41960784792900085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
+                                        </variation>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pkt-UB-cQO">
+                                        <rect key="frame" x="0.0" y="42.5" width="273" height="294"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xdH-cY-Ufq" userLabel="Attribute Titles">
+                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="294"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Base Exp" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLL-4y-RHI" userLabel="Base Exp Title">
+                                                        <rect key="frame" x="16" y="0.0" width="72.5" height="114.5"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFu-bO-kB9" userLabel="Height Title">
+                                                        <rect key="frame" x="16" y="90" width="72.5" height="114"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ4-q6-vne" userLabel="Weight Title">
+                                                        <rect key="frame" x="16" y="179.5" width="72.5" height="114.5"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="16" bottom="0.0" trailing="0.0"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFB-lm-Z6p" userLabel="Attribute Values">
+                                                <rect key="frame" x="88.5" y="0.0" width="184.5" height="294"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vCF-a0-zPR" userLabel="Base Exp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="114.5"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vKx-ri-WRa" userLabel="Height">
+                                                        <rect key="frame" x="0.0" y="90" width="168.5" height="114"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YBs-u5-Owd" userLabel="Weight">
+                                                        <rect key="frame" x="0.0" y="179.5" width="168.5" height="114.5"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="0.0" bottom="0.0" trailing="16"/>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dOX-49-eee" firstAttribute="height" secondItem="pkt-UB-cQO" secondAttribute="height" multiplier="0.2" id="Ye2-Uq-Vi4"/>
+                                </constraints>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="0.0" bottom="8" trailing="0.0"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="vED-3U-Ah0" firstAttribute="height" secondItem="EfZ-d6-wbk" secondAttribute="height" multiplier="0.3" id="eDF-sd-3LE"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="eDF-sd-3LE"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact" axis="horizontal">
+                            <mask key="constraints">
+                                <exclude reference="eDF-sd-3LE"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="eDF-sd-3LE"/>
+                            </mask>
+                        </variation>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="EfZ-d6-wbk" secondAttribute="trailing" id="JGU-A7-mKo"/>
+                    <constraint firstItem="EfZ-d6-wbk" firstAttribute="top" secondItem="0Re-iu-MJ4" secondAttribute="top" id="VvX-3u-YhR"/>
+                    <constraint firstItem="EfZ-d6-wbk" firstAttribute="leading" secondItem="0Re-iu-MJ4" secondAttribute="leading" id="alO-HR-iWx"/>
+                    <constraint firstAttribute="bottom" secondItem="EfZ-d6-wbk" secondAttribute="bottom" id="ro0-x6-NQ2"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="273" height="492"/>
+            <connections>
+                <outlet property="baseExpLabel" destination="vCF-a0-zPR" id="8eA-aD-PPh"/>
+                <outlet property="heightLabel" destination="vKx-ri-WRa" id="Bin-8F-Uan"/>
+                <outlet property="largePokemonImageView" destination="vED-3U-Ah0" id="Zxz-KN-fQF"/>
+                <outlet property="largePokemonNameLabel" destination="dOX-49-eee" id="hnK-Lh-vwM"/>
+                <outlet property="weightLabel" destination="YBs-u5-Owd" id="agC-EW-bq2"/>
+            </connections>
+            <point key="canvasLocation" x="210" y="611"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="10" width="120" height="120"/>
+    </resources>
+</document>
