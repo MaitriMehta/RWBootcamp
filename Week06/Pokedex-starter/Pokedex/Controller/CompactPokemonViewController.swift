@@ -58,7 +58,7 @@ class CompactPokemonViewController: UIViewController {
   // MARK: - Setup CollectionView
   private func setupCollectionView() {
     //cellsPerRow = deviceAndOrientationCheck()
-    guard let collectionView = pokemonCollectionView, let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+  guard let collectionView = pokemonCollectionView, let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
     flowLayout.minimumInteritemSpacing = margin
     flowLayout.minimumLineSpacing = margin
     flowLayout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
@@ -75,7 +75,7 @@ class CompactPokemonViewController: UIViewController {
   
 }
 
-// MARK: - UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension CompactPokemonViewController: UICollectionViewDataSource, UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -143,7 +143,7 @@ extension CompactPokemonViewController: UICollectionViewDataSource, UICollection
 }
 
 
-// MARK: - UICollectionViewDelegateFlowLayout
+ //MARK: - UICollectionViewDelegateFlowLayout
 extension CompactPokemonViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
