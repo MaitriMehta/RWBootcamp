@@ -136,7 +136,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
         }
         
         if !query.isEmpty {
-            predicates.append(NSPredicate(format: "name BEGINSWITH[cd] %@", query))
+            predicates.append(NSPredicate(format: "name CONTAINS[cd] %@", query))
         }
         
         switch predicates.count {
@@ -162,7 +162,8 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     func sauceAmountModel(by sauceAmount: SauceAmount) -> SauceAmountModel? {
       do {
         let request = SauceAmountModel.fetchRequest() as NSFetchRequest<SauceAmountModel>
-        request.predicate = NSPredicate(format: "sauceAmountString == %@", sauceAmount.rawValue)
+        request.predicate = NSPredicate(format: serachFormat, sauceAmount.rawValue)
+        
         let results = try context.fetch(request)
         if let result = results.first {
           return result
