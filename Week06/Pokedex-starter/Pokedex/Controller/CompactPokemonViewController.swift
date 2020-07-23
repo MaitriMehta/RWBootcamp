@@ -108,29 +108,6 @@ extension CompactPokemonViewController: UICollectionViewDataSource, UICollection
         super.viewWillTransition(to: size, with: coordinator)
      }
   
-//    func deviceAndOrientationCheck() -> Int{
-//      switch UIDevice.current.userInterfaceIdiom {
-//         case .phone:
-//           cellsPerRow = 3
-//         case .pad:
-//           cellsPerRow = 3
-//         case .unspecified:
-//           cellsPerRow = 3
-//         case .tv:
-//           cellsPerRow = 3
-//         case .carPlay:
-//           cellsPerRow = 3
-//         @unknown default:
-//           cellsPerRow = 3
-//       }
-//      if UIDevice.current.orientation.isLandscape {
-//       cellsPerRow = 3
-//      } else {
-//       cellsPerRow = 3
-//      }
-//      return cellsPerRow
-//    }
-  
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
       UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
       return 10.0

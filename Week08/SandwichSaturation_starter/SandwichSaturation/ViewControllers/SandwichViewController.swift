@@ -39,29 +39,26 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   
     // MARK: - ViewController Life Cycle
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentAddView(_:)))
-        navigationItem.rightBarButtonItem = addButton
-        
-        // Setup Search Controller
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Filter Sandwiches"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
+      super.viewDidLoad()
+      let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentAddView(_:)))
+      navigationItem.rightBarButtonItem = addButton
+      // Setup Search Controller
+      searchController.searchResultsUpdater = self
+      searchController.obscuresBackgroundDuringPresentation = false
+      searchController.searchBar.placeholder = "Filter Sandwiches"
+      navigationItem.searchController = searchController
+      definesPresentationContext = true
         searchController.searchBar.scopeButtonTitles = SauceAmount.allCases.map { $0.rawValue }
         searchController.searchBar.delegate = self
-        let selectedFilterIndex = UserDefaults.standard.integer(forKey: selectedScopeKey)
-        searchController.searchBar.selectedScopeButtonIndex = selectedFilterIndex
+//        let selectedFilterIndex = UserDefaults.standard.integer(forKey: selectedScopeKey)
+//        searchController.searchBar.selectedScopeButtonIndex = selectedFilterIndex
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        searchController.searchBar.selectedScopeButtonIndex = selectedScopeIndex
-        showEditButton()
+      super.viewWillAppear(animated)
+      searchController.searchBar.selectedScopeButtonIndex = selectedScopeIndex
+      showEditButton()
     }
     
     func loadSauceAmounts() {
@@ -82,22 +79,22 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     }
     
     func loadSandwiches() {
-        loadSauceAmounts()
-        guard let sandwichesJSONURL = Bundle.main.url(forResource: "sandwiches", withExtension: "json")
-            else { return }
+      loadSauceAmounts()
+      guard let sandwichesJSONURL = Bundle.main.url(forResource: "sandwiches", withExtension: "json")
+        else { return }
         let decoder = JSONDecoder()
         do {
-            let request = SandwichModel.fetchRequest() as NSFetchRequest<SandwichModel>
-            let results = try context.fetch(request)
+          let request = SandwichModel.fetchRequest() as NSFetchRequest<SandwichModel>
+          let results = try context.fetch(request)
             
-            if results.count == 0 {
-                let sandwichesData = try Data(contentsOf: sandwichesJSONURL)
-                sandwiches = try decoder.decode([SandwichData].self, from: sandwichesData)
-                for sandwich in sandwiches {
-                    addSandwich(sandwich)
-                }
-                appDelegate.saveContext()
-            }
+          if results.count == 0 {
+            let sandwichesData = try Data(contentsOf: sandwichesJSONURL)
+            sandwiches = try decoder.decode([SandwichData].self, from: sandwichesData)
+            for sandwich in sandwiches {
+              addSandwich(sandwich)
+             }
+            appDelegate.saveContext()
+           }
             
             switch selectedScopeIndex {
               case 1:
@@ -115,15 +112,15 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     }
     
     private func getPredicate(for sauceAmount: SauceAmount) -> NSPredicate {
-        switch sauceAmount {
-            case .any:
-                let none = NSPredicate(format: serachFormat, SauceAmount.none.rawValue)
-                let tooMuch = NSPredicate(format: serachFormat, SauceAmount.tooMuch.rawValue)
-                return NSCompoundPredicate(orPredicateWithSubpredicates: [none, tooMuch])
-            case .none:
-                return NSPredicate(format: serachFormat, SauceAmount.none.rawValue)
-            case .tooMuch:
-                return NSPredicate(format: serachFormat, SauceAmount.tooMuch.rawValue)
+      switch sauceAmount {
+        case .any:
+          let none = NSPredicate(format: serachFormat, SauceAmount.none.rawValue)
+          let tooMuch = NSPredicate(format: serachFormat, SauceAmount.tooMuch.rawValue)
+            return NSCompoundPredicate(orPredicateWithSubpredicates: [none, tooMuch])
+        case .none:
+            return NSPredicate(format: serachFormat, SauceAmount.none.rawValue)
+        case .tooMuch:
+            return NSPredicate(format: serachFormat, SauceAmount.tooMuch.rawValue)
         }
     }
     
@@ -162,7 +159,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     func sauceAmountModel(by sauceAmount: SauceAmount) -> SauceAmountModel? {
       do {
         let request = SauceAmountModel.fetchRequest() as NSFetchRequest<SauceAmountModel>
-        request.predicate = NSPredicate(format: serachFormat, sauceAmount.rawValue)
+        request.predicate = NSPredicate(format: "sauceAmountString == %@", sauceAmount.rawValue)
         
         let results = try context.fetch(request)
         if let result = results.first {
@@ -265,18 +262,15 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
 // MARK: - NSFetchedResultsControllerDelegate
 extension SandwichViewController: NSFetchedResultsControllerDelegate {
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
-        let index = indexPath ?? (newIndexPath ?? nil)
-        guard let rowIndex = index else {
-            return
-        }
-        
-        if type == .insert {
-            tableView.insertRows(at: [rowIndex], with: .automatic)
-        }
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    let index = indexPath ?? (newIndexPath ?? nil)
+    guard let rowIndex = index else {
+      return
     }
+    if type == .insert {
+      tableView.insertRows(at: [rowIndex], with: .automatic)
+    }
+  }
 }
 
 // MARK: - UISearchResultsUpdating

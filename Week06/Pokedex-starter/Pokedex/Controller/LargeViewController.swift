@@ -97,10 +97,5 @@ class LargeViewController: UIViewController {
 
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
-//
-//    guard let layout = largePokemonCollectionView.collectionViewLayout as? UICollectionViewCompositionalLayout else {
-//      return
-//    }
-//    layout.invalidateLayout()
   }
 }
