@@ -5,7 +5,7 @@ Discord : Maitri#5095
 
 Basic Location : USA, California
 
-Your programming experience : 6 years of Objective C experience but haven't much codded in last few years
+Your programming experience : 6 years of Objective C experience
 
 Goals : Get back to iOS Rhythm (Thinking in Swift) and become Mobile Architect one day
 
