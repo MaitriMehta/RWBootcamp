@@ -25,8 +25,11 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   let defaults = UserDefaults.standard
   let selectedScopeKey = "selectedFilterIndex"
   var searchString: String = ""
-  let serachFormat = "sauceAmount.sauceAmountString == %@"
-  var selectedScopeIndex: Int {
+  let serachFormat1 = "sauceAmount.sauceAmountString == %@"
+  let serachFormat2 = "name CONTAINS[cd] %@"
+  let seaachFormat3 = "sauceAmountString == %@"
+    
+  var selectedFilterIndex: Int {
     get {
       return defaults.integer(forKey: selectedScopeKey)
     }
@@ -48,27 +51,26 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
       searchController.searchBar.placeholder = "Filter Sandwiches"
       navigationItem.searchController = searchController
       definesPresentationContext = true
-        searchController.searchBar.scopeButtonTitles = SauceAmount.allCases.map { $0.rawValue }
-        searchController.searchBar.delegate = self
-//        let selectedFilterIndex = UserDefaults.standard.integer(forKey: selectedScopeKey)
-//        searchController.searchBar.selectedScopeButtonIndex = selectedFilterIndex
-
+      searchController.searchBar.scopeButtonTitles = SauceAmount.allCases.map { $0.rawValue }
+      searchController.searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
-      searchController.searchBar.selectedScopeButtonIndex = selectedScopeIndex
+      searchController.searchBar.selectedScopeButtonIndex = selectedFilterIndex
       showEditButton()
     }
     
+    // MARK: - Methods to filter and load data
     func loadSauceAmounts() {
       do {
         let request = SauceAmountModel.fetchRequest() as NSFetchRequest<SauceAmountModel>
         let results = try context.fetch(request)
-          if results.count == 0 {
-            for sauceAmount in SauceAmount.allCases {
+        if results.count == 0 {
+        for sauceAmount in SauceAmount.allCases {
               if sauceAmount == .any { continue }
-                addSauceAmount(sauceAmount)
+                let entity = SauceAmountModel(entity: SauceAmountModel.entity(), insertInto: context)
+                entity.sauceAmountString = sauceAmount.rawValue
               }
               appDelegate.saveContext()
             }
@@ -80,62 +82,67 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     
     func loadSandwiches() {
       loadSauceAmounts()
-      guard let sandwichesJSONURL = Bundle.main.url(forResource: "sandwiches", withExtension: "json")
-        else { return }
-        let decoder = JSONDecoder()
-        do {
-          let request = SandwichModel.fetchRequest() as NSFetchRequest<SandwichModel>
-          let results = try context.fetch(request)
-            
-          if results.count == 0 {
-            let sandwichesData = try Data(contentsOf: sandwichesJSONURL)
-            sandwiches = try decoder.decode([SandwichData].self, from: sandwichesData)
-            for sandwich in sandwiches {
-              addSandwich(sandwich)
-             }
-            appDelegate.saveContext()
-           }
-            
-            switch selectedScopeIndex {
-              case 1:
-                let sauceAmount = SauceAmount(rawValue: SauceAmount.none.rawValue)
-                reload(query: "", sauceAmount: sauceAmount)
-              case 2:
-                let sauceAmount = SauceAmount(rawValue: SauceAmount.tooMuch.rawValue)
-                reload(query: "", sauceAmount: sauceAmount)
-              default:
-                reload()
-            }
+      guard let sandwichesJSONURL = Bundle.main.url(forResource: "sandwiches", withExtension: "json")else {
+        return
+      }
+        
+      let decoder = JSONDecoder()
+      do {
+        let sandwichData = try Data(contentsOf: sandwichesJSONURL)
+          sandwiches = try decoder.decode([SandwichData].self, from: sandwichData)
         } catch let error {
-            print("Error: \(error)")
+          print(error)
         }
+      do {
+        let request = SandwichModel.fetchRequest() as NSFetchRequest<SandwichModel>
+        let results = try context.fetch(request)
+
+        if results.count == 0 {
+          let sandwichesData = try Data(contentsOf: sandwichesJSONURL)
+          sandwiches = try decoder.decode([SandwichData].self, from: sandwichesData)
+          for sandwich in sandwiches {
+            addSandwich(sandwich)
+          }
+          appDelegate.saveContext()
+      }
+      switch selectedFilterIndex {
+        case 1:
+          let sauceAmount = SauceAmount(rawValue: SauceAmount.none.rawValue)
+          reload(query: searchString, sauceAmount: sauceAmount)
+        case 2:
+          let sauceAmount = SauceAmount(rawValue: SauceAmount.tooMuch.rawValue)
+          reload(query: searchString, sauceAmount: sauceAmount)
+        default:
+          reload()
+      }
     }
+    catch let error {
+      print("Error: \(error)")
+    }
+  }
     
     private func getPredicate(for sauceAmount: SauceAmount) -> NSPredicate {
+      let none = NSPredicate(format: serachFormat1, SauceAmount.none.rawValue)
+      let tooMuch = NSPredicate(format: serachFormat1, SauceAmount.none.rawValue)
       switch sauceAmount {
         case .any:
-          let none = NSPredicate(format: serachFormat, SauceAmount.none.rawValue)
-          let tooMuch = NSPredicate(format: serachFormat, SauceAmount.tooMuch.rawValue)
-            return NSCompoundPredicate(orPredicateWithSubpredicates: [none, tooMuch])
+          return NSCompoundPredicate(orPredicateWithSubpredicates: [none, tooMuch])
         case .none:
-            return NSPredicate(format: serachFormat, SauceAmount.none.rawValue)
+          return none
         case .tooMuch:
-            return NSPredicate(format: serachFormat, SauceAmount.tooMuch.rawValue)
+          return tooMuch
         }
     }
     
     private func reload(query: String = "", sauceAmount: SauceAmount? = nil) {
         let request = SandwichModel.fetchRequest() as NSFetchRequest<SandwichModel>
         var predicates: [NSPredicate] = []
-        
         if let sauce = sauceAmount {
             predicates.append(getPredicate(for: sauce))
         }
-        
         if !query.isEmpty {
-            predicates.append(NSPredicate(format: "name CONTAINS[cd] %@", query))
+            predicates.append(NSPredicate(format: serachFormat2, query))
         }
-        
         switch predicates.count {
           case 1:
             request.predicate = predicates.first
@@ -144,7 +151,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
           default:
             print("Filtered data not available.")
         }
-        
+
         let sort = NSSortDescriptor(key: #keyPath(SandwichModel.name), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
         request.sortDescriptors = [sort]
         do {
@@ -156,10 +163,10 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
         }
     }
     
-    func sauceAmountModel(by sauceAmount: SauceAmount) -> SauceAmountModel? {
+    func fetchSauceAmountModel(by sauceAmount: SauceAmount) -> SauceAmountModel? {
       do {
         let request = SauceAmountModel.fetchRequest() as NSFetchRequest<SauceAmountModel>
-        request.predicate = NSPredicate(format: "sauceAmountString == %@", sauceAmount.rawValue)
+        request.predicate = NSPredicate(format: seaachFormat3, sauceAmount.rawValue)
         
         let results = try context.fetch(request)
         if let result = results.first {
@@ -175,16 +182,12 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
       return nil
     }
     
-    func addSauceAmount(_ sauceAmount: SauceAmount) {
-        let entity = SauceAmountModel(entity: SauceAmountModel.entity(), insertInto: context)
-        entity.sauceAmountString = sauceAmount.rawValue
-    }
-    
+
     func addSandwich(_ sandwich: SandwichData) {
         let entity = SandwichModel(entity: SandwichModel.entity(), insertInto: context)
         entity.imageName = sandwich.imageName
         entity.name = sandwich.name
-        if let sauceAmount = sauceAmountModel(by: sandwich.sauceAmount) {
+        if let sauceAmount = fetchSauceAmountModel(by: sandwich.sauceAmount) {
             entity.sauceAmount = sauceAmount
         }
     }
@@ -192,7 +195,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     func saveSandwich(_ sandwich: SandwichData) {
         addSandwich(sandwich)
         appDelegate.saveContext()
-        let sauceAmount = SauceAmount(rawValue: searchController.searchBar.scopeButtonTitles![selectedScopeIndex])
+        let sauceAmount = SauceAmount(rawValue: searchController.searchBar.scopeButtonTitles![selectedFilterIndex])
         reload(query: searchString, sauceAmount: sauceAmount)
     }
     
@@ -253,7 +256,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
             let entity = fetchedResultsController.object(at: indexPath)
             context.delete(entity)
             appDelegate.saveContext()
-            let sauceAmount = SauceAmount(rawValue: searchController.searchBar.scopeButtonTitles![selectedScopeIndex])
+            let sauceAmount = SauceAmount(rawValue: searchController.searchBar.scopeButtonTitles![selectedFilterIndex])
             reload(query: searchString, sauceAmount: sauceAmount)
             tableView.deleteRows(at: [indexPath], with: .right)
         }
