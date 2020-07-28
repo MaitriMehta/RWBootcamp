@@ -22,14 +22,32 @@ class SoundManager: NSObject {
             // Then if it's nil you know it's the user's first time launching the app
             UserDefaults.standard.object(forKey: "sound") as? Bool
         }
+        set(isSoundEnabled) {
+            UserDefaults.standard.set(isSoundEnabled, forKey: "sound")
+        }
     }
 
     func playSound() {
-
+      let path = Bundle.main.path(forResource: soundFileName, ofType:nil)!
+      let url = URL(fileURLWithPath: path)
+      do {
+        player = try AVAudioPlayer(contentsOf: url)
+        checkSound()
+      } catch {
+        print(error)
+      }
+    }
+    
+    func checkSound() {
+        if isSoundEnabled ?? false {
+        player?.play()
+      } else {
+        player?.stop()
+      }
     }
 
     func toggleSoundPreference() {
-
+      isSoundEnabled = !(isSoundEnabled ?? true)
+      checkSound()
     }
-
 }

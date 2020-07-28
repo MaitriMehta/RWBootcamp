@@ -20,6 +20,7 @@
 		C3FBE53824C4DEA300D11A30 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FBE53724C4DEA300D11A30 /* ImageCache.swift */; };
 		E29B735724CE14BC00774811 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B735624CE14BC00774811 /* Constant.swift */; };
 		E29B735924CE20A500774811 /* RESTAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B735824CE20A500774811 /* RESTAPICall.swift */; };
+		E29B736124CE852D00774811 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B736024CE852D00774811 /* URLSession+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		C3FBE53724C4DEA300D11A30 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		E29B735624CE14BC00774811 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		E29B735824CE20A500774811 /* RESTAPICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPICall.swift; sourceTree = "<group>"; };
+		E29B736024CE852D00774811 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,16 +107,15 @@
 		C3DF5B7524C2549400F6D3EC /* jQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				E29B735F24CE851B00774811 /* Extensions */,
+				E29B735E24CE253E00774811 /* Networking */,
 				C3DF5BA924C254A800F6D3EC /* AppDelegate */,
-				C3DF5B7A24C2549400F6D3EC /* ViewController.swift */,
-				C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */,
+				E29B735A24CE243F00774811 /* Model */,
+				E29B735D24CE24E700774811 /* View Controllers */,
 				C3FBE53524C2877C00D11A30 /* SoundManager.swift */,
-				C3DF5BAF24C260A600F6D3EC /* Clue.swift */,
 				C3FBE53724C4DEA300D11A30 /* ImageCache.swift */,
-				C3DF5B7C24C2549400F6D3EC /* Main.storyboard */,
-				C3DF5B8424C2549A00F6D3EC /* LaunchScreen.storyboard */,
-				C3DF5BAC24C256D600F6D3EC /* Assets */,
-				C3DF5B8724C2549A00F6D3EC /* Info.plist */,
+				E29B735B24CE24A800774811 /* Resources */,
+				E29B735C24CE24C200774811 /* Supporting Files */,
 			);
 			path = jQuiz;
 			sourceTree = "<group>";
@@ -124,8 +125,6 @@
 			children = (
 				C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */,
 				C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */,
-				E29B735624CE14BC00774811 /* Constant.swift */,
-				E29B735824CE20A500774811 /* RESTAPICall.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -137,6 +136,58 @@
 				C3DF5BAA24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		E29B735A24CE243F00774811 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5BAF24C260A600F6D3EC /* Clue.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E29B735B24CE24A800774811 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5B7C24C2549400F6D3EC /* Main.storyboard */,
+				C3DF5B8424C2549A00F6D3EC /* LaunchScreen.storyboard */,
+				C3DF5BAC24C256D600F6D3EC /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E29B735C24CE24C200774811 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E29B735624CE14BC00774811 /* Constant.swift */,
+				C3DF5B8724C2549A00F6D3EC /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E29B735D24CE24E700774811 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5B7A24C2549400F6D3EC /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E29B735E24CE253E00774811 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */,
+				E29B735824CE20A500774811 /* RESTAPICall.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E29B735F24CE851B00774811 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E29B736024CE852D00774811 /* URLSession+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +328,7 @@
 				E29B735724CE14BC00774811 /* Constant.swift in Sources */,
 				C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */,
 				C3DF5BB024C260A600F6D3EC /* Clue.swift in Sources */,
+				E29B736124CE852D00774811 /* URLSession+Extension.swift in Sources */,
 				C3FBE53824C4DEA300D11A30 /* ImageCache.swift in Sources */,
 				C3FBE53624C2877C00D11A30 /* SoundManager.swift in Sources */,
 				E29B735924CE20A500774811 /* RESTAPICall.swift in Sources */,
@@ -451,7 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = jQuiz/Info.plist;
+				INFOPLIST_FILE = "jQuiz/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,7 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = jQuiz/Info.plist;
+				INFOPLIST_FILE = "jQuiz/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
