@@ -119,7 +119,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
 //        cell.backgroundColor = .systemGray
-        cell.textLabel?.text = clues[indexPath.row].answer.capitalized
+        cell.textLabel?.text = clues[indexPath.row].answer.html2String
         cell.textLabel?.textAlignment = .center
         return cell
     }
@@ -130,9 +130,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
-
-
 extension URL {
     init(staticString string: StaticString) {
         guard let url = URL(string: "\(string)") else {
@@ -142,3 +139,25 @@ extension URL {
         self = url
     }
 }
+
+//# MARK :  Handle HTML Tags
+extension Data {
+    var html2AttributedString: NSAttributedString? {
+        do {
+            return try NSAttributedString(data: self, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return  nil
+        }
+    }
+    var html2String: String { html2AttributedString?.string ?? "" }
+}
+
+extension StringProtocol {
+    var html2AttributedString: NSAttributedString? {
+        Data(utf8).html2AttributedString
+    }
+    var html2String: String {
+        html2AttributedString?.string ?? ""
+    }
+}
+

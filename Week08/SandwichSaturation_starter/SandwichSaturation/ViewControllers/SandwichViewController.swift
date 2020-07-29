@@ -14,7 +14,6 @@ protocol SandwichDataSource {
 }
 
 class SandwichViewController: UITableViewController, SandwichDataSource {
-//  var selectedFilterIndex : Int
     
   // MARK: - Variables
   let searchController = UISearchController(searchResultsController: nil)
@@ -290,7 +289,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let entity = fetchedResultsController.object(at: indexPath)
+            let entity = fetchedResultsController.object(at: indexPath)// crashing
             context.delete(entity)
             appDelegate.saveContext()
             let sauceAmount = SauceAmount(rawValue: searchController.searchBar.scopeButtonTitles![selectedFilterIndex])
