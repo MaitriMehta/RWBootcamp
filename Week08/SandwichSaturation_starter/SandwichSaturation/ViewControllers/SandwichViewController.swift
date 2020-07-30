@@ -1,9 +1,11 @@
-//
-//  SandwichViewController.swift
-//  SandwichSaturation
-//
-//  Created by Jeff Rames on 7/3/20.
-//  Copyright © 2020 Jeff Rames. All rights reserved.
+
+////
+////  SandwichViewController.swift
+////  SandwichSaturation
+////
+////  Created by Jeff Rames on 7/3/20.
+////  Copyright © 2020 Jeff Rames. All rights reserved.
+////
 //
 
 import UIKit
@@ -14,7 +16,7 @@ protocol SandwichDataSource {
 }
 
 class SandwichViewController: UITableViewController, SandwichDataSource {
-    
+
   // MARK: - Variables
   let searchController = UISearchController(searchResultsController: nil)
   var sandwiches = [SandwichData]()
@@ -23,29 +25,26 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   let appDelegate = AppDelegate.shared
   let defaults = UserDefaults.standard
   let jsonFileName = "sandwiches"
-    
+
   private let context = AppDelegate.shared.persistentContainer.viewContext
   private var fetchedResultsController: NSFetchedResultsController<SandwichModel>!
-//  var searchString: String = ""
     var serachFormat = ""
-  //let seaachFormat = "sauceAmountString == %@"
-  
+
   var selectedFilterIndex: Int {
     get {
       return defaults.integer(forKey: selectedScopeKey)
     }
   }
-    
+
   required init?(coder: NSCoder) {
     super.init(coder: coder)
-    //readJSON()
       loadSandwiches()
   }
-    
+
   // MARK: - ViewController LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-        
+
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentAddView(_:)))
     navigationItem.rightBarButtonItem = addButton
     navigationItem.leftBarButtonItem = editButtonItem
@@ -58,13 +57,13 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     definesPresentationContext = true
     searchController.searchBar.scopeButtonTitles = SauceAmount.allCases.map { $0.rawValue }
     searchController.searchBar.delegate = self
-    
+
     let selectedFilterIndex = UserDefaults.standard.integer(forKey: selectedScopeKey)
     print(selectedFilterIndex)
     searchController.searchBar.selectedScopeButtonIndex = selectedFilterIndex
-    
+
   }
-  
+
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     searchController.searchBar.selectedScopeButtonIndex = selectedFilterIndex
@@ -72,31 +71,28 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
   // MARK: - Parse JSON
   func readJSON(){
-   
-  }
-    
-  // MARK: - Methods to filter and load data
-  func loadSauceAmounts() {
-    do {
-      let request = SauceAmountModel.fetchRequest() as NSFetchRequest<SauceAmountModel>
-      let results = try context.fetch(request)
-      if results.count == 0 {
-        for sauceAmount in SauceAmount.allCases {
-          if sauceAmount == .any { continue }
-            let entity = SauceAmountModel(entity: SauceAmountModel.entity(), insertInto: context)
-              entity.sauceAmountString = sauceAmount.rawValue
-             }
-             appDelegate.saveContext()
-           }
-         }
-         catch let error {
-            print("Error: \(error.localizedDescription)")
-         }
-    }
 
-    func loadSandwiches() {
-       loadSauceAmounts()
-       guard let sandwichesJSONURL = Bundle.main.url(forResource: "sandwiches", withExtension: "json")else { return }
+  }
+
+  // MARK: - Methods to filter and load data
+
+  func loadSandwiches() {
+    do {
+       let request = SauceAmountModel.fetchRequest() as NSFetchRequest<SauceAmountModel>
+       let results = try context.fetch(request)
+       if results.count == 0 {
+         for sauceAmount in SauceAmount.allCases {
+           if sauceAmount == .any { continue }
+             let entity = SauceAmountModel(entity: SauceAmountModel.entity(), insertInto: context)
+               entity.sauceAmountString = sauceAmount.rawValue
+              }
+              appDelegate.saveContext()
+            }
+          }
+    catch let error {
+        print("Error: \(error.localizedDescription)")
+    }
+    guard let sandwichesJSONURL = Bundle.main.url(forResource: "sandwiches", withExtension: "json")else { return }
 
        let decoder = JSONDecoder()
        do {
@@ -123,7 +119,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
            print("Error: \(error)")
          }
   }
-    
+
     func addSandwich(_ sandwich: SandwichData) {
         let entity = SandwichModel(entity: SandwichModel.entity(), insertInto: context)
         entity.imageName = sandwich.imageName
@@ -146,7 +142,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
           return tooMuch
         }
     }
-    
+
   private func reload(sauceAmount: SauceAmount? = nil) {
       serachFormat = "name CONTAINS[cd] %@"
       let request = SandwichModel.fetchRequest() as NSFetchRequest<SandwichModel>
@@ -202,7 +198,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
         print(error.localizedDescription)
       }
     }
-    
+
     func decodeData(pathName: URL){
       do{
         let jsonData = try Data(contentsOf: pathName)
@@ -210,7 +206,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
         sandwiches = try decoder.decode([SandwichData].self, from: jsonData)
       } catch {}
     }
-    
+
     func loadFile(mainPath: URL, subPath: URL){
       let fm = FileManager.default
       if fm.fileExists(atPath: subPath.path){
@@ -223,32 +219,32 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
       }
      refresh()
     }
-    
 
-    
+
+
   func saveSandwich(_ sandwich: SandwichData) {
-//    sandwiches.append(sandwich)
-//    tableView.reloadData()
+    sandwiches.append(sandwich)
+    tableView.reloadData()
     addSandwich(sandwich)
     appDelegate.saveContext()
     let sauceAmount = SauceAmount(rawValue: searchController.searchBar.scopeButtonTitles![selectedFilterIndex])
     reload(sauceAmount: sauceAmount)
 }
-    
+
   @objc
   func presentAddView(_ sender: Any) {
     performSegue(withIdentifier: "AddSandwichSegue", sender: self)
   }
 
 
-    
+
   // MARK: - Search Controller
   var isSearchBarEmpty: Bool {
     return searchController.searchBar.text?.isEmpty ?? true
   }
-  
+
   func filterContentForSearchText(_ searchText: String, sauceAmount: SauceAmount? = nil) {
-    
+
     filteredSandwiches = sandwiches.filter { (sandwhich: SandwichData) -> Bool in
       let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount == sauceAmount
 
@@ -259,10 +255,10 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
           .contains(searchText.lowercased())
       }
     }
-    
+
     tableView.reloadData()
   }
-  
+
   var isFiltering: Bool {
     let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
     return searchController.isActive && (!isSearchBarEmpty || searchBarScopeIsFiltering)
@@ -286,7 +282,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     cell.sauceLabel.text = sandwich.sauceAmount.description //sandwich.sauceAmount!.sauceAmount.rawValue
     return cell
   }
-    
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let entity = fetchedResultsController.object(at: indexPath)// crashing
@@ -304,7 +300,7 @@ extension SandwichViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     let searchBar = searchController.searchBar
     let sauceAmount = SauceAmount(rawValue:searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
-//    searchString = searchBar.text!
+    serachFormat = searchBar.text!
     filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
   }
 }
@@ -327,6 +323,9 @@ extension SandwichViewController: NSFetchedResultsControllerDelegate {
       }
       if type == .insert {
         tableView.insertRows(at: [rowIndex], with: .automatic)
+      }
+      if type == .delete {
+        tableView.deleteRows(at: [rowIndex], with: .automatic)
       }
     }
   }
