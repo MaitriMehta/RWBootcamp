@@ -17,7 +17,6 @@ class Networking {
        static let baseUrl = "http://www.jservice.io/api"
        case question
        case cluesCategory(Clue)
-       case logoImage
        
        var urlString: String {
            switch self {
@@ -25,8 +24,6 @@ class Networking {
                return APIRouter.baseUrl + "/random"
            case .cluesCategory(let clue):
                return APIRouter.baseUrl + "/clues?category=\(clue.categoryId)&offset=\(clue.category.numOfClues - 4)"
-           case .logoImage:
-               return logoImageURL
            }
        }
         var url: URL {

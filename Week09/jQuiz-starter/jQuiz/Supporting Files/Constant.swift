@@ -11,6 +11,10 @@ let logoImageURL = "https://cdn1.edgedatg.com/aws/v2/abc/ABCUpdates/blog/2900129
 //let baseURL = "h​ttp://www.jservice.io/api/"
 let soundFileName = "Jeopardy-theme-song.mp3"
 
+enum State{
+    case on
+    case off
+}
 
 enum Apirouter {
     case randomQuestion
